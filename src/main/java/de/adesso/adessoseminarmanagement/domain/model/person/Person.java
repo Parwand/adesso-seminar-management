@@ -1,6 +1,5 @@
 package de.adesso.adessoseminarmanagement.domain.model.person;
 
-import de.adesso.adessoseminarmanagement.domain.model.person.Adresse;
 import de.adesso.adessoseminarmanagement.domain.model.seminar.Seminar;
 
 import javax.persistence.Entity;
