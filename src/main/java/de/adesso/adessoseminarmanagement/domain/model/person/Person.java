@@ -5,6 +5,8 @@ import de.adesso.adessoseminarmanagement.domain.model.seminar.Seminar;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import java.util.List;
 
 @Entity
@@ -14,7 +16,9 @@ public class Person {
     private String vorname;
     private String nachname;
     private String geburtsdatum;
+    @OneToOne
     private Adresse adresse;
+    @OneToMany
     private List<Seminar> seminarList;
 
     public Person() {
