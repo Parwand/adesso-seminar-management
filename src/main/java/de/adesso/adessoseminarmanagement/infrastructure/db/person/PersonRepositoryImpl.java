@@ -27,7 +27,7 @@ public class PersonRepositoryImpl implements PersonRepository {
 
     @Override
     public Person getPerson(Long id) {
-        return personDao.findPersonById(id).orElseThrow(() -> new PersonNotFoundException("Person with "+ id +"not Found"));
+        return personDao.findPersonById(id).orElseThrow(() -> new PersonNotFoundException("Person with "+ id +" not Found"));
     }
 
     @Override
