@@ -17,7 +17,7 @@ public class Person {
     @Column(nullable = false)
     private String geburtsdatum;
     @ManyToOne(cascade = CascadeType.PERSIST)
-    @Column(nullable = false)
+    @JoinColumn(nullable = false)
     private Adresse adresse;
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "person_id", referencedColumnName = "id")
