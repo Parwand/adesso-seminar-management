@@ -39,7 +39,7 @@ class PersonServiceTest {
     }
 
     @Test
-    @DisplayName("person should be saved in DB with seminarList")
+    @DisplayName("person should be saved in DB with seminarList and seminarraum")
     void test_2() {
         // Arrange
         Person person = new Person();
