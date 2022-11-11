@@ -3,6 +3,7 @@ package de.adesso.adessoseminarmanagement.domain.model.person;
 import de.adesso.adessoseminarmanagement.domain.model.seminar.Seminar;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -15,7 +16,7 @@ public class Person {
     @Column(nullable = false)
     private String nachname;
     @Column(nullable = false)
-    private String geburtsdatum;
+    private LocalDate geburtsdatum;
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(nullable = false)
     private Adresse adresse;
@@ -26,7 +27,7 @@ public class Person {
     public Person() {
     }
 
-    public Person(String vorname, String nachname, String geburtsdatum, Adresse adresse, List<Seminar> seminarList) {
+    public Person(String vorname, String nachname, LocalDate geburtsdatum, Adresse adresse, List<Seminar> seminarList) {
         this.vorname = vorname;
         this.nachname = nachname;
         this.geburtsdatum = geburtsdatum;
@@ -50,11 +51,11 @@ public class Person {
         this.nachname = nachname;
     }
 
-    public String getGeburtsdatum() {
+    public LocalDate getGeburtsdatum() {
         return geburtsdatum;
     }
 
-    public void setGeburtsdatum(String geburtsdatum) {
+    public void setGeburtsdatum(LocalDate geburtsdatum) {
         this.geburtsdatum = geburtsdatum;
     }
 
