@@ -1,9 +1,6 @@
 package de.adesso.adessoseminarmanagement.domain.model.seminar;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
@@ -20,11 +17,14 @@ public class Seminar {
     private int Teilnehmeranzahl;
     private String seminarleiter;
     private String voraussetzung;
+    @ManyToOne
+    @JoinColumn(name = "seminarraum", referencedColumnName = "raumnummer")
+    private Seminarraum seminarraum;
 
     public Seminar() {
     }
 
-    public Seminar(String seminarTitle, LocalDateTime beginn, LocalDateTime ende, String kursinhalt, int teilnehmeranzahl, String seminarleiter, String voraussetzung) {
+    public Seminar(String seminarTitle, LocalDateTime beginn, LocalDateTime ende, String kursinhalt, int teilnehmeranzahl, String seminarleiter, String voraussetzung, Seminarraum seminarraum) {
         this.seminarTitle = seminarTitle;
         this.beginn = beginn;
         this.ende = ende;
@@ -32,6 +32,7 @@ public class Seminar {
         Teilnehmeranzahl = teilnehmeranzahl;
         this.seminarleiter = seminarleiter;
         this.voraussetzung = voraussetzung;
+        this.seminarraum = seminarraum;
     }
 
     public Long getSeminarnummer() {
@@ -96,6 +97,14 @@ public class Seminar {
 
     public void setVoraussetzung(String voraussetzung) {
         this.voraussetzung = voraussetzung;
+    }
+
+    public Seminarraum getSeminarraum() {
+        return seminarraum;
+    }
+
+    public void setSeminarraum(Seminarraum seminarraum) {
+        this.seminarraum = seminarraum;
     }
 
     @Override
