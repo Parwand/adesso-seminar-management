@@ -4,6 +4,8 @@ import de.adesso.adessoseminarmanagement.applicationservice.repository.person.Pe
 import de.adesso.adessoseminarmanagement.domain.model.person.Person;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PersonService {
 
@@ -27,6 +29,10 @@ public class PersonService {
 
     public Person getPerson(Long id) {
         return personRepository.getPerson(id);
+    }
+
+    public List<Person> personList() {
+        return personRepository.getAllPersons();
     }
 
 }

@@ -5,6 +5,8 @@ import de.adesso.adessoseminarmanagement.domain.model.person.Person;
 import de.adesso.adessoseminarmanagement.infrastructure.exception.PersonNotFoundException;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class PersonRepositoryImpl implements PersonRepository {
     private final PersonDao personDao;
@@ -26,5 +28,10 @@ public class PersonRepositoryImpl implements PersonRepository {
     @Override
     public Person getPerson(Long id) {
         return personDao.findPersonById(id).orElseThrow(() -> new PersonNotFoundException("Person with "+ id +"not Found"));
+    }
+
+    @Override
+    public List<Person> getAllPersons() {
+        return personDao.findAll();
     }
 }
