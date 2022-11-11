@@ -17,7 +17,7 @@ public class Seminar {
     private int Teilnehmeranzahl;
     private String seminarleiter;
     private String voraussetzung;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "seminarraum", referencedColumnName = "raumnummer")
     private Seminarraum seminarraum;
 
