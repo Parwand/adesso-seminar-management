@@ -38,6 +38,14 @@ public class Seminarbuchung {
         this.buchungsdatum = buchungsdatum;
     }
 
+    public int getSeminar() {
+        return seminar;
+    }
+
+    public void setSeminar(int seminar) {
+        this.seminar = seminar;
+    }
+
     @Override
     public String toString() {
         return "Seminarbuchung{" +
