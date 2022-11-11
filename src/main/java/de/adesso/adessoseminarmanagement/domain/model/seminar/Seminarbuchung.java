@@ -10,14 +10,14 @@ public class Seminarbuchung {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long buchungsnummer;
     private LocalDate buchungsdatum;
-    @ManyToOne
+    @ManyToOne(targetEntity = Seminar.class)
     @JoinColumn(name = "seminarnummer", referencedColumnName = "seminarnummer")
-    private Seminar seminar;
+    private int seminar;
 
     public Seminarbuchung() {
     }
 
-    public Seminarbuchung(LocalDate buchungsdatum, Seminar seminar) {
+    public Seminarbuchung(LocalDate buchungsdatum, int seminar) {
         this.buchungsdatum = buchungsdatum;
         this.seminar = seminar;
     }
