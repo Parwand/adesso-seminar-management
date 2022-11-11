@@ -42,7 +42,7 @@ public class Person {
         this.seminarbuchungen = seminarbuchungen;
     }
 
-    public int seminarBuche(int seminarnummer) {
+    public int seminarBuchen(int seminarnummer) {
         LocalDate buchungsdatum = LocalDate.now();
         Seminarbuchung buchung = new Seminarbuchung(buchungsdatum, seminarnummer);
         seminarbuchungen.add(buchung);
