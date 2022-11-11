@@ -1,9 +1,6 @@
 package de.adesso.adessoseminarmanagement.domain.model.seminar;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Objects;
 
@@ -13,12 +10,16 @@ public class Seminarbuchung {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long buchungsnummer;
     private LocalDate buchungsdatum;
+    @ManyToOne
+    @JoinColumn(name = "seminarnummer", referencedColumnName = "seminarnummer")
+    private Seminar seminar;
 
     public Seminarbuchung() {
     }
 
-    public Seminarbuchung(LocalDate buchungsdatum) {
+    public Seminarbuchung(LocalDate buchungsdatum, Seminar seminar) {
         this.buchungsdatum = buchungsdatum;
+        this.seminar = seminar;
     }
 
     public Long getBuchungsnummer() {
