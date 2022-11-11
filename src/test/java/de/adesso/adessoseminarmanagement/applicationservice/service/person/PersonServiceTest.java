@@ -120,4 +120,29 @@ class PersonServiceTest {
         // Assert
         assertThrows(PersonNotFoundException.class, () -> personService.getPerson(person.getId()));
     }
+
+    @Test
+    @DisplayName("get all people in DB")
+    void test_6() {
+        // Arrange
+        // Person 1
+        Person person1 = new Person();
+        person1.setVorname("vorname-person1");
+        person1.setNachname("nachname-person1");
+        person1.setGeburtsdatum(LocalDate.of(2000, 4, 8));
+        Adresse adresse1 = new Adresse("Bochum", "street", "45", "33343");
+        person1.setAdresse(adresse1);
+        // Person 2
+        Person person2 = new Person();
+        person2.setVorname("vorname-person2");
+        person2.setNachname("nachname-person2");
+        person2.setGeburtsdatum(LocalDate.of(1993, 7, 2));
+        Adresse adresse2 = new Adresse("Bochum", "street", "45", "33343");
+        person2.setAdresse(adresse2);
+        // Act
+        personService.save(person1);
+        personService.save(person2);
+        List<Person> people = personService.personList();
+        // Assert
+    }
 }
