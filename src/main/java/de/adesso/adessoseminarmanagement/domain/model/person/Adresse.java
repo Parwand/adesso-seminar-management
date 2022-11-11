@@ -1,11 +1,14 @@
 package de.adesso.adessoseminarmanagement.domain.model.person;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Adresse {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String stadt;
     private String strasse;
