@@ -23,4 +23,9 @@ public class SeminarraumRepoImpl implements SeminarraumRepo {
     public Seminarraum getSeminarraumById(Long id) {
         return seminarraumDao.findById(id).orElseThrow(() -> new SeminarraumNotFoundException("SeminarRoom not Found"));
     }
+
+    @Override
+    public void deleteById(Long id) {
+        seminarraumDao.deleteById(id);
+    }
 }

@@ -24,4 +24,8 @@ public class SeminarraumService {
     public Seminarraum updateSeminarraum(Seminarraum seminarraum) {
         return seminarraumRepo.save(seminarraum);
     }
+
+    public void deleteSeminarraum(Long id) {
+        seminarraumRepo.deleteById(id);
+    }
 }

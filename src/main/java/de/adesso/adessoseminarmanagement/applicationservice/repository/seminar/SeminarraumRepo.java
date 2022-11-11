@@ -8,4 +8,6 @@ public interface SeminarraumRepo {
     Seminarraum save(Seminarraum seminarraum);
 
     Seminarraum getSeminarraumById(Long id);
+
+    void deleteById(Long id);
 }
