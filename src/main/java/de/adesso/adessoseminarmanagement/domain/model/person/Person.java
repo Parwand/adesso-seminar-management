@@ -5,6 +5,7 @@ import de.adesso.adessoseminarmanagement.domain.model.seminar.Seminarbuchung;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -28,7 +29,7 @@ public class Person {
     @JoinTable(name = "person_buchung_map",
             joinColumns = { @JoinColumn(name = "person_id", referencedColumnName = "id")},
             inverseJoinColumns = @JoinColumn(name = "buchungsnummer", referencedColumnName = "buchungsnummer"))
-    private List<Seminarbuchung> seminarbuchungen;
+    private List<Seminarbuchung> seminarbuchungen = new ArrayList<>();
 
     public Person() {
     }
