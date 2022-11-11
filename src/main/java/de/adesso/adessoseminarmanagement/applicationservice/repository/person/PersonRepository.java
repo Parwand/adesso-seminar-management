@@ -9,4 +9,6 @@ public interface PersonRepository {
     public Person savePerson(Person person);
 
     void deletePerson(Long id);
+
+    Person getPerson(Long id);
 }

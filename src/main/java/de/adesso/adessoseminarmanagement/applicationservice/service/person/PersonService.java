@@ -25,4 +25,8 @@ public class PersonService {
         personRepository.deletePerson(id);
     }
 
+    public Person getPerson(Long id) {
+        return personRepository.getPerson(id);
+    }
+
 }
