@@ -15,7 +15,7 @@ public class Seminar {
     private Long seminarnummer;
     private String seminarTitle;
     private LocalDateTime beginn;
-    private LocalDateTime end;
+    private LocalDateTime ende;
     private String kursinhalt;
     private int Teilnehmeranzahl;
     private String seminarleiter;
@@ -24,10 +24,10 @@ public class Seminar {
     public Seminar() {
     }
 
-    public Seminar(String seminarTitle, LocalDateTime beginn, LocalDateTime end, String kursinhalt, int teilnehmeranzahl, String seminarleiter, String voraussetzung) {
+    public Seminar(String seminarTitle, LocalDateTime beginn, LocalDateTime ende, String kursinhalt, int teilnehmeranzahl, String seminarleiter, String voraussetzung) {
         this.seminarTitle = seminarTitle;
         this.beginn = beginn;
-        this.end = end;
+        this.ende = ende;
         this.kursinhalt = kursinhalt;
         Teilnehmeranzahl = teilnehmeranzahl;
         this.seminarleiter = seminarleiter;
@@ -58,12 +58,12 @@ public class Seminar {
         this.beginn = beginn;
     }
 
-    public LocalDateTime getEnd() {
-        return end;
+    public LocalDateTime getEnde() {
+        return ende;
     }
 
-    public void setEnd(LocalDateTime end) {
-        this.end = end;
+    public void setEnde(LocalDateTime end) {
+        this.ende = end;
     }
 
     public String getKursinhalt() {
@@ -104,7 +104,7 @@ public class Seminar {
                 "seminarnummer=" + seminarnummer +
                 ", seminarTitle='" + seminarTitle + '\'' +
                 ", beginn=" + beginn +
-                ", end=" + end +
+                ", end=" + ende +
                 ", kursinhalt='" + kursinhalt + '\'' +
                 ", Teilnehmeranzahl=" + Teilnehmeranzahl +
                 ", seminarleiter='" + seminarleiter + '\'' +
