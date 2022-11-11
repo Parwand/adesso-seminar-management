@@ -7,4 +7,6 @@ import org.springframework.stereotype.Repository;
 public interface PersonRepository {
 
     public Person savePerson(Person person);
+
+    void deletePerson(Long id);
 }

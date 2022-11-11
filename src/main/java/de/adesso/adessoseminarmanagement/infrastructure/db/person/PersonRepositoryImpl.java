@@ -16,4 +16,9 @@ public class PersonRepositoryImpl implements PersonRepository {
     public Person savePerson(Person person) {
         return personDao.save(person);
     }
+
+    @Override
+    public void deletePerson(Long id) {
+        personDao.deleteById(id);
+    }
 }
