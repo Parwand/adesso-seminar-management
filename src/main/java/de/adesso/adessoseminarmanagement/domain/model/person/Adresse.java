@@ -7,7 +7,7 @@ import javax.persistence.Id;
 public class Adresse {
     @Id
     private Long id;
-
+    private String stadt;
     private String strasse;
 
     private String strassennummer;
@@ -16,7 +16,8 @@ public class Adresse {
     public Adresse() {
     }
 
-    public Adresse(String strasse, String strassennummer, String plz) {
+    public Adresse(String stadt, String strasse, String strassennummer, String plz) {
+        this.stadt = stadt;
         this.strasse = strasse;
         this.strassennummer = strassennummer;
         this.plz = plz;
@@ -53,6 +54,14 @@ public class Adresse {
 
     public void setPlz(String plz) {
         this.plz = plz;
+    }
+
+    public String getStadt() {
+        return stadt;
+    }
+
+    public void setStadt(String stadt) {
+        this.stadt = stadt;
     }
 
     @Override
