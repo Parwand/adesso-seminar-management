@@ -1,6 +1,4 @@
-package de.adesso.adessoseminarmanagement.infrastructure.util;
-
-import java.util.function.Supplier;
+package de.adesso.adessoseminarmanagement.infrastructure.exception;
 
 public class PersonNotFoundException extends RuntimeException{
     public PersonNotFoundException(String message) {

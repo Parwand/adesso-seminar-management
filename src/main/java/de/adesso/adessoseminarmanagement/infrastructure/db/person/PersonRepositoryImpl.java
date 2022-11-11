@@ -2,7 +2,7 @@ package de.adesso.adessoseminarmanagement.infrastructure.db.person;
 
 import de.adesso.adessoseminarmanagement.applicationservice.repository.person.PersonRepository;
 import de.adesso.adessoseminarmanagement.domain.model.person.Person;
-import de.adesso.adessoseminarmanagement.infrastructure.util.PersonNotFoundException;
+import de.adesso.adessoseminarmanagement.infrastructure.exception.PersonNotFoundException;
 import org.springframework.stereotype.Repository;
 
 @Repository
