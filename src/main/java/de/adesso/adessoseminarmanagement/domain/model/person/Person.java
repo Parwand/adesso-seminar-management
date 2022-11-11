@@ -10,10 +10,14 @@ public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable = false)
     private String vorname;
+    @Column(nullable = false)
     private String nachname;
+    @Column(nullable = false)
     private String geburtsdatum;
     @ManyToOne(cascade = CascadeType.PERSIST)
+    @Column(nullable = false)
     private Adresse adresse;
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "person_id", referencedColumnName = "id")
