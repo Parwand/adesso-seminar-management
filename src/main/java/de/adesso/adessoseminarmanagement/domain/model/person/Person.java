@@ -2,22 +2,20 @@ package de.adesso.adessoseminarmanagement.domain.model.person;
 
 import de.adesso.adessoseminarmanagement.domain.model.seminar.Seminar;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
 public class Person {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String vorname;
     private String nachname;
     private String geburtsdatum;
-    @OneToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private Adresse adresse;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Seminar> seminarList;
 
     public Person() {
