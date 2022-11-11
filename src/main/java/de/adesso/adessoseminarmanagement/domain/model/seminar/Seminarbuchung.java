@@ -3,12 +3,12 @@ package de.adesso.adessoseminarmanagement.domain.model.seminar;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Objects;
+import java.util.UUID;
 
 @Entity
 public class Seminarbuchung {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long buchungsnummer;
+    private UUID buchungsnummer;
     private LocalDate buchungsdatum;
     @ManyToOne(targetEntity = Seminar.class)
     @JoinColumn(name = "seminarnummer", referencedColumnName = "seminarnummer")
@@ -17,16 +17,17 @@ public class Seminarbuchung {
     public Seminarbuchung() {
     }
 
-    public Seminarbuchung(LocalDate buchungsdatum, int seminar) {
+    public Seminarbuchung(UUID buchungsnummer, LocalDate buchungsdatum, int seminar) {
+        this.buchungsnummer = buchungsnummer;
         this.buchungsdatum = buchungsdatum;
         this.seminar = seminar;
     }
 
-    public Long getBuchungsnummer() {
+    public UUID getBuchungsnummer() {
         return buchungsnummer;
     }
 
-    public void setBuchungsnummer(Long buchungsnummer) {
+    public void setBuchungsnummer(UUID buchungsnummer) {
         this.buchungsnummer = buchungsnummer;
     }
 
