@@ -43,10 +43,10 @@ class PersonServiceTest {
     void test_2() {
         // Arrange
         Person person = new Person();
-        person.setVorname("vorname1");
-        person.setNachname("nachname1");
+        person.setVorname("vorname2");
+        person.setNachname("nachname2");
         person.setGeburtsdatum(LocalDate.of(1994, 3, 12));
-        Adresse adresse = new Adresse("Du", "Eller", "22a", "4055");
+        Adresse adresse = new Adresse("KO", "Uni", "13a", "20344");
         Seminarraum seminarraum1 = new Seminarraum(10L, "All");
         Seminar seminar1 = new Seminar("seminarTitle1",
                 LocalDateTime.of(LocalDate.of(2022, 11, 11), LocalTime.of(11, 0)),
@@ -57,5 +57,30 @@ class PersonServiceTest {
         personService.save(person);
         // Assert
         assertThat(person.getId()).isNotNull();
+    }
+
+    @Test
+    @DisplayName("person could be updated")
+    void test_3() {
+        // Arrange
+        Person person = new Person();
+        person.setVorname("vorname3");
+        person.setNachname("nachname3");
+        person.setGeburtsdatum(LocalDate.of(1991, 4, 23));
+        Adresse adresse = new Adresse("Berlin", "Berliner", "56", "23034");
+        person.setAdresse(adresse);
+        // Act
+        personService.save(person);
+        person.setVorname("vorname3_updated");
+        person.setNachname("nachname3_updated");
+        person.setGeburtsdatum(LocalDate.of(1991, 4, 23));
+        adresse.setStrassennummer("56b");
+        person.setAdresse(adresse);
+        personService.update(person);
+        // Assert
+        assertThat(person.getVorname()).isEqualTo("vorname3_updated");
+        assertThat(person.getNachname()).isEqualTo("nachname3_updated");
+        assertThat(person.getGeburtsdatum()).isEqualTo(LocalDate.of(1991, 4, 23));
+        assertThat(person.getAdresse().getStrassennummer()).isEqualTo("56b");
     }
 }
