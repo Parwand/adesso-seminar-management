@@ -42,6 +42,13 @@ public class Person {
         this.seminarbuchungen = seminarbuchungen;
     }
 
+    public int seminarBuche(int seminarnummer) {
+        LocalDate buchungsdatum = LocalDate.now();
+        Seminarbuchung buchung = new Seminarbuchung(buchungsdatum, seminarnummer);
+        seminarbuchungen.add(buchung);
+        return Math.toIntExact(buchung.getBuchungsnummer());
+    }
+
     public String getVorname() {
         return vorname;
     }
