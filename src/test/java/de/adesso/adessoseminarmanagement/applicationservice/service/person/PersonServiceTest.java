@@ -4,6 +4,7 @@ import de.adesso.adessoseminarmanagement.domain.model.person.Adresse;
 import de.adesso.adessoseminarmanagement.domain.model.person.Person;
 import de.adesso.adessoseminarmanagement.domain.model.seminar.Seminar;
 import de.adesso.adessoseminarmanagement.domain.model.seminar.Seminarraum;
+import de.adesso.adessoseminarmanagement.infrastructure.exception.PersonNotFoundException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import java.time.LocalTime;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @SpringBootTest
 class PersonServiceTest {
@@ -100,5 +102,22 @@ class PersonServiceTest {
         // Assert
         assertThat(loaded_person).isNotNull();
         assertThat(loaded_person.getId()).isEqualTo(person.getId());
+    }
+
+    @Test
+    @DisplayName("person could be deleted")
+    void test_5() {
+        // Arrange
+        Person person = new Person();
+        person.setVorname("vorname5");
+        person.setNachname("nachname5");
+        person.setGeburtsdatum(LocalDate.of(2000, 4, 8));
+        Adresse adresse = new Adresse("Bochum", "street", "45", "33343");
+        person.setAdresse(adresse);
+        // Act
+        personService.save(person);
+        personService.deletePerson(person.getId());
+        // Assert
+        assertThrows(PersonNotFoundException.class, () -> personService.getPerson(person.getId()));
     }
 }
