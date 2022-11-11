@@ -1,6 +1,7 @@
 package de.adesso.adessoseminarmanagement.domain.model.person;
 
 import de.adesso.adessoseminarmanagement.domain.model.seminar.Seminar;
+import de.adesso.adessoseminarmanagement.domain.model.seminar.Seminarbuchung;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -23,6 +24,11 @@ public class Person {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "person_id", referencedColumnName = "id")
     private List<Seminar> seminarList;
+    @ManyToMany
+    @JoinTable(name = "person_buchung_map",
+            joinColumns = { @JoinColumn(name = "person_id", referencedColumnName = "id")},
+            inverseJoinColumns = @JoinColumn(name = "buchungsnummer", referencedColumnName = "buchungsnummer"))
+    private List<Seminarbuchung> seminarbuchungen;
 
     public Person() {
     }
