@@ -83,4 +83,22 @@ class PersonServiceTest {
         assertThat(person.getGeburtsdatum()).isEqualTo(LocalDate.of(1991, 4, 23));
         assertThat(person.getAdresse().getStrassennummer()).isEqualTo("56b");
     }
+
+    @Test
+    @DisplayName("person should be loaded from Database")
+    void test_4() {
+        // Arrange
+        Person person = new Person();
+        person.setVorname("vorname4");
+        person.setNachname("nachname4");
+        person.setGeburtsdatum(LocalDate.of(2000, 4, 8));
+        Adresse adresse = new Adresse("Bochum", "street", "45", "33343");
+        person.setAdresse(adresse);
+        // Act
+        personService.save(person);
+        Person loaded_person = personService.getPerson(person.getId());
+        // Assert
+        assertThat(loaded_person).isNotNull();
+        assertThat(loaded_person.getId()).isEqualTo(person.getId());
+    }
 }
