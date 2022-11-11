@@ -33,12 +33,13 @@ public class Person {
     public Person() {
     }
 
-    public Person(String vorname, String nachname, LocalDate geburtsdatum, Adresse adresse, List<Seminar> seminarList) {
+    public Person(String vorname, String nachname, LocalDate geburtsdatum, Adresse adresse, List<Seminar> seminarList, List<Seminarbuchung> seminarbuchungen) {
         this.vorname = vorname;
         this.nachname = nachname;
         this.geburtsdatum = geburtsdatum;
         this.adresse = adresse;
         this.seminarList = seminarList;
+        this.seminarbuchungen = seminarbuchungen;
     }
 
     public String getVorname() {
@@ -79,6 +80,14 @@ public class Person {
 
     public void setSeminarList(List<Seminar> seminarList) {
         this.seminarList = seminarList;
+    }
+
+    public List<Seminarbuchung> getSeminarbuchungen() {
+        return seminarbuchungen;
+    }
+
+    public void setSeminarbuchungen(List<Seminarbuchung> seminarbuchungen) {
+        this.seminarbuchungen = seminarbuchungen;
     }
 
     public Long getId() {
