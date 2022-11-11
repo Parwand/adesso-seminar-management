@@ -30,7 +30,6 @@ public class Adresse {
         this.id = id;
     }
 
-    @Id
     public Long getId() {
         return id;
     }
