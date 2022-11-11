@@ -23,4 +23,9 @@ public class SeminarRepositoryImpl implements SeminarRepository {
     public Seminar getSeminarById(Long id) {
         return seminarDao.findById(id).orElseThrow(() -> new SeminarNotFoundException("Seminar could not be found"));
     }
+
+    @Override
+    public void deleteById(Long id) {
+        seminarDao.deleteById(id);
+    }
 }

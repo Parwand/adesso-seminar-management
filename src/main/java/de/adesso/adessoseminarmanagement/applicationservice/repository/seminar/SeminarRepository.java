@@ -8,4 +8,6 @@ public interface SeminarRepository {
     Seminar save(Seminar seminar);
 
     Seminar getSeminarById(Long id);
+
+    void deleteById(Long id);
 }

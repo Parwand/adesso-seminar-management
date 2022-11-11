@@ -24,4 +24,8 @@ public class SeminarService {
     public Seminar updateSeminar(Seminar seminar) {
         return seminarRepository.save(seminar);
     }
+
+    public void deleteSeminarById(Long id) {
+        seminarRepository.deleteById(id);
+    }
 }
