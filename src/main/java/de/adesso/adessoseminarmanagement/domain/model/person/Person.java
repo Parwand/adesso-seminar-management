@@ -16,6 +16,7 @@ public class Person {
     @ManyToOne(cascade = CascadeType.PERSIST)
     private Adresse adresse;
     @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "person_id", referencedColumnName = "id")
     private List<Seminar> seminarList;
 
     public Person() {
