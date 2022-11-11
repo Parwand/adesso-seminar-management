@@ -7,6 +7,7 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 public class Person {
@@ -43,11 +44,12 @@ public class Person {
         this.seminarbuchungen = seminarbuchungen;
     }
 
-    public int seminarBuchen(int seminarnummer) {
+    public UUID seminarBuchen(int seminarnummer) {
         LocalDate buchungsdatum = LocalDate.now();
-        Seminarbuchung buchung = new Seminarbuchung(buchungsdatum, seminarnummer);
+        UUID buchungsnummer = UUID.randomUUID();
+        Seminarbuchung buchung = new Seminarbuchung(buchungsnummer, buchungsdatum, seminarnummer);
         seminarbuchungen.add(buchung);
-        return Math.toIntExact(buchung.getBuchungsnummer());
+        return buchung.getBuchungsnummer();
     }
 
     public String getVorname() {
