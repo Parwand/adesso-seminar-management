@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface SeminarRepository {
     Seminar save(Seminar seminar);
+
+    Seminar getSeminarById(Long id);
 }

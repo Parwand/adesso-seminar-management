@@ -16,4 +16,8 @@ public class SeminarService {
     public Seminar saveSeminar(Seminar seminar) {
         return seminarRepository.save(seminar);
     }
+
+    public Seminar getSeminarById(Long id) {
+        return seminarRepository.getSeminarById(id);
+    }
 }
