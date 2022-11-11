@@ -16,4 +16,8 @@ public class SeminarraumService {
     public Seminarraum saveSeminarraum(Seminarraum seminarraum) {
         return seminarraumRepo.save(seminarraum);
     }
+
+    public Seminarraum getSeminarraumById(Long id) {
+        return seminarraumRepo.getSeminarraumById(id);
+    }
 }
