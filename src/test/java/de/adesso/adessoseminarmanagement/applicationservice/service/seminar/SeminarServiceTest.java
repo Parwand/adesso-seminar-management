@@ -13,7 +13,6 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class SeminarServiceTest {
@@ -21,7 +20,7 @@ class SeminarServiceTest {
     private SeminarService seminarService;
     @Autowired
     private SeminarraumService seminarraumService;
-    Seminarraum seminarraum  = new Seminarraum(22L, "big monitor and webCam");
+    Seminarraum seminarraum  = new Seminarraum("name2", 22L, "big monitor and webCam");
 
     @BeforeEach
     void setup() {

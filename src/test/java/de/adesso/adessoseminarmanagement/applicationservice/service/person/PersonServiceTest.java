@@ -55,7 +55,7 @@ class PersonServiceTest {
         person.setNachname("nachname2");
         person.setGeburtsdatum(LocalDate.of(1994, 3, 12));
         Adresse adresse = new Adresse("KO", "Uni", "13a", "20344");
-        Seminarraum seminarraum1 = new Seminarraum(10L, "All");
+        Seminarraum seminarraum1 = new Seminarraum("name1", 10L, "All");
         seminarraumService.saveSeminarraum(seminarraum1);
         Seminar seminar1 = new Seminar("seminarTitle1",
                 LocalDateTime.of(LocalDate.of(2022, 11, 11), LocalTime.of(11, 0)),
