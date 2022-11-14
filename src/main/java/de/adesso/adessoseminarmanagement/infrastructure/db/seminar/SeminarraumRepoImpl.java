@@ -1,6 +1,6 @@
 package de.adesso.adessoseminarmanagement.infrastructure.db.seminar;
 
-import de.adesso.adessoseminarmanagement.applicationservice.repository.seminar.SeminarraumRepo;
+import de.adesso.adessoseminarmanagement.applicationservice.repository.seminar.SeminarraumRepository;
 import de.adesso.adessoseminarmanagement.domain.model.seminar.Seminarraum;
 import de.adesso.adessoseminarmanagement.infrastructure.exception.SeminarraumNotFoundException;
 import org.springframework.stereotype.Repository;
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class SeminarraumRepoImpl implements SeminarraumRepo {
+public class SeminarraumRepoImpl implements SeminarraumRepository {
 
     private final SeminarraumDao seminarraumDao;
 
