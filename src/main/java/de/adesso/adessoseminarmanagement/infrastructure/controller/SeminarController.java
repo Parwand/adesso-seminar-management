@@ -6,6 +6,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -24,5 +26,11 @@ public class SeminarController {
     public ResponseEntity<List<Seminar>> getAllSeminar() {
         List<Seminar> allSeminar = seminarService.getAllSeminar();
         return new ResponseEntity<>(allSeminar, HttpStatus.OK);
+    }
+
+    @PostMapping("/add")
+    public ResponseEntity<Seminar> addSeminar(@RequestBody Seminar seminar) {
+        Seminar savedSeminar = seminarService.saveSeminar(seminar);
+        return new ResponseEntity<>(savedSeminar, HttpStatus.CREATED);
     }
 }
