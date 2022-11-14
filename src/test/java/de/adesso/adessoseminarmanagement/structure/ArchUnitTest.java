@@ -64,4 +64,12 @@ public class ArchUnitTest {
             .should()
             .haveSimpleNameEndingWith("Repository")
             .because("For better structure");
+
+    @ArchTest
+    static final ArchRule servicedClassShouldEndWithNameService = classes()
+            .that()
+            .resideInAPackage("..service..")
+            .should()
+            .haveSimpleNameEndingWith("Service")
+            .because("For better structure");
 }
