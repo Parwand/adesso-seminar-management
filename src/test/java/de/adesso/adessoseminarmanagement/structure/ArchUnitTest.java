@@ -12,8 +12,7 @@ import de.adesso.adessoseminarmanagement.domain.model.seminar.Seminarbuchung;
 import de.adesso.adessoseminarmanagement.domain.model.seminar.Seminarraum;
 import org.springframework.stereotype.Controller;
 
-import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.fields;
-import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
+import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.*;
 
 @AnalyzeClasses(packagesOf = Application.class, importOptions = ImportOption.DoNotIncludeTests.class)
 public class ArchUnitTest {
@@ -57,4 +56,12 @@ public class ArchUnitTest {
             .should()
             .notBePublic()
             .because("For less coupling between component and Injection with constructor");
+
+    @ArchTest
+    static final ArchRule reposClassShouldEndWithNameRepository = classes()
+            .that()
+            .resideInAPackage("..repository..")
+            .should()
+            .haveSimpleNameEndingWith("Repository")
+            .because("For better structure");
 }
