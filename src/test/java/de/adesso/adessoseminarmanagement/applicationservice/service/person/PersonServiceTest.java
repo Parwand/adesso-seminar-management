@@ -1,6 +1,7 @@
 package de.adesso.adessoseminarmanagement.applicationservice.service.person;
 
 import de.adesso.adessoseminarmanagement.applicationservice.service.seminar.SeminarService;
+import de.adesso.adessoseminarmanagement.applicationservice.service.seminar.SeminarraumService;
 import de.adesso.adessoseminarmanagement.domain.model.person.Adresse;
 import de.adesso.adessoseminarmanagement.domain.model.person.Person;
 import de.adesso.adessoseminarmanagement.domain.model.seminar.Seminar;
@@ -26,6 +27,8 @@ class PersonServiceTest {
     private PersonService personService;
     @Autowired
     private SeminarService seminarService;
+    @Autowired
+    private SeminarraumService seminarraumService;
 
     @Test
     @DisplayName("person should be saved in DB")
@@ -53,9 +56,11 @@ class PersonServiceTest {
         person.setGeburtsdatum(LocalDate.of(1994, 3, 12));
         Adresse adresse = new Adresse("KO", "Uni", "13a", "20344");
         Seminarraum seminarraum1 = new Seminarraum(10L, "All");
+        seminarraumService.saveSeminarraum(seminarraum1);
         Seminar seminar1 = new Seminar("seminarTitle1",
                 LocalDateTime.of(LocalDate.of(2022, 11, 11), LocalTime.of(11, 0)),
                 LocalDateTime.of(LocalDate.of(2022, 11, 11), LocalTime.of(12, 0)), "kursinhalt", 10, "seminarleiter1",  "voraussetzung1", seminarraum1);
+        seminarService.saveSeminar(seminar1);
         person.setAdresse(adresse);
         person.setSeminarList(List.of(seminar1));
         // Act
