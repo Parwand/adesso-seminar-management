@@ -5,9 +5,7 @@ import de.adesso.adessoseminarmanagement.domain.model.person.Person;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -31,5 +29,11 @@ public class PersonController {
     public ResponseEntity<Person> getPerson(@PathVariable String id) {
         Person person = personService.getPerson(Long.parseLong(id));
         return new ResponseEntity<>(person, HttpStatus.FOUND);
+    }
+
+    @PostMapping("/add")
+    public ResponseEntity<Person> addPerson(@RequestBody Person person) {
+        Person savePerson = personService.save(person);
+        return new ResponseEntity<>(savePerson, HttpStatus.CREATED);
     }
 }
