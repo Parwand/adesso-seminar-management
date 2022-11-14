@@ -25,6 +25,12 @@ public class SeminarController {
         return new ResponseEntity<>(allSeminar, HttpStatus.OK);
     }
 
+    @PostMapping("/get/{id}")
+    public ResponseEntity<Seminar> getSeminar(@PathVariable String id) {
+        Seminar savedSeminar = seminarService.getSeminarById(Long.parseLong(id));
+        return new ResponseEntity<>(savedSeminar, HttpStatus.FOUND);
+    }
+
     @PostMapping("/add")
     public ResponseEntity<Seminar> addSeminar(@RequestBody Seminar seminar) {
         Seminar savedSeminar = seminarService.saveSeminar(seminar);
