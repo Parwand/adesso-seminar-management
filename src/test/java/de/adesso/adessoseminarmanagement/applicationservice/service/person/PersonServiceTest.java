@@ -145,4 +145,22 @@ class PersonServiceTest {
         List<Person> people = personService.personList();
         // Assert
     }
+
+    @Test
+    @DisplayName("person should be saved in DB with booking of seminar")
+    void test_7() {
+        // Arrange
+        Seminar seminar = new Seminar();
+        Person person = new Person();
+        person.setVorname("vorname7");
+        person.setNachname("nachname7");
+        person.setGeburtsdatum(LocalDate.of(1995, 8, 20));
+        Adresse adresse = new Adresse("Hamburg", "Lion", "30a", "33229");
+        person.setAdresse(adresse);
+        person.seminarBuchen(seminar);
+        // Act
+        personService.save(person);
+        // Assert
+        assertThat(person.getSeminarbuchungen()).isNotNull();
+    }
 }

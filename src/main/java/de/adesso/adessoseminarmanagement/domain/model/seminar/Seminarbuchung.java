@@ -10,14 +10,14 @@ public class Seminarbuchung {
     @Id
     private UUID buchungsnummer;
     private LocalDate buchungsdatum;
-    @ManyToOne(targetEntity = Seminar.class)
+    @ManyToOne()
     @JoinColumn(name = "seminarnummer", referencedColumnName = "seminarnummer")
-    private Long seminar;
+    private Seminar seminar;
 
     public Seminarbuchung() {
     }
 
-    public Seminarbuchung(UUID buchungsnummer, LocalDate buchungsdatum, Long seminar) {
+    public Seminarbuchung(UUID buchungsnummer, LocalDate buchungsdatum, Seminar seminar) {
         this.buchungsnummer = buchungsnummer;
         this.buchungsdatum = buchungsdatum;
         this.seminar = seminar;
@@ -39,11 +39,11 @@ public class Seminarbuchung {
         this.buchungsdatum = buchungsdatum;
     }
 
-    public Long getSeminar() {
+    public Seminar getSeminar() {
         return seminar;
     }
 
-    public void setSeminar(Long seminar) {
+    public void setSeminar(Seminar seminar) {
         this.seminar = seminar;
     }
 

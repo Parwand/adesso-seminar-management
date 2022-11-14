@@ -44,10 +44,10 @@ public class Person {
         this.seminarbuchungen = seminarbuchungen;
     }
 
-    public UUID seminarBuchen(Long seminarnummer) {
+    public UUID seminarBuchen(Seminar seminar) {
         LocalDate buchungsdatum = LocalDate.now();
         UUID buchungsnummer = UUID.randomUUID();
-        Seminarbuchung buchung = new Seminarbuchung(buchungsnummer, buchungsdatum, seminarnummer);
+        Seminarbuchung buchung = new Seminarbuchung(buchungsnummer, buchungsdatum, seminar);
         seminarbuchungen.add(buchung);
         return buchung.getBuchungsnummer();
     }
