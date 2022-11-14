@@ -52,6 +52,13 @@ public class Person {
         return buchung.getBuchungsnummer();
     }
 
+    public boolean buchungStornieren(UUID buchungsnummer) {
+        List<Seminarbuchung> collect = seminarbuchungen.stream().filter((b) -> b.getBuchungsnummer().equals(buchungsnummer)).toList();
+        Seminarbuchung seminarbuchung = collect.get(0);
+        seminarbuchungen.remove(seminarbuchung);
+        return true;
+    }
+
     public String getVorname() {
         return vorname;
     }
