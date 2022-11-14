@@ -5,10 +5,7 @@ import de.adesso.adessoseminarmanagement.domain.model.seminar.Seminar;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -32,5 +29,11 @@ public class SeminarController {
     public ResponseEntity<Seminar> addSeminar(@RequestBody Seminar seminar) {
         Seminar savedSeminar = seminarService.saveSeminar(seminar);
         return new ResponseEntity<>(savedSeminar, HttpStatus.CREATED);
+    }
+
+    @PutMapping ("/update")
+    public ResponseEntity<Seminar> updateSeminar(@RequestBody Seminar seminar) {
+        Seminar savedSeminar = seminarService.updateSeminar(seminar);
+        return new ResponseEntity<>(savedSeminar, HttpStatus.OK);
     }
 }
