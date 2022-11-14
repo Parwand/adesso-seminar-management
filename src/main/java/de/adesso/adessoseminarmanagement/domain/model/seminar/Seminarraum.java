@@ -12,15 +12,26 @@ public class Seminarraum {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long raumnummer;
+
+    private String name;
     private Long maximalePersonenanzahl;
     private String ausstattung;
 
     public Seminarraum() {
     }
 
-    public Seminarraum(Long maximalePersonenanzahl, String ausstattung) {
+    public Seminarraum(String name, Long maximalePersonenanzahl, String ausstattung) {
+        this.name = name;
         this.maximalePersonenanzahl = maximalePersonenanzahl;
         this.ausstattung = ausstattung;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Long getRaumnummer() {
