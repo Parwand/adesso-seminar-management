@@ -5,6 +5,8 @@ import de.adesso.adessoseminarmanagement.domain.model.seminar.Seminar;
 import de.adesso.adessoseminarmanagement.infrastructure.exception.SeminarNotFoundException;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class SeminarRepositoryImpl implements SeminarRepository {
 
@@ -27,5 +29,10 @@ public class SeminarRepositoryImpl implements SeminarRepository {
     @Override
     public void deleteById(Long id) {
         seminarDao.deleteById(id);
+    }
+
+    @Override
+    public List<Seminar> findAll() {
+        return seminarDao.findAll();
     }
 }

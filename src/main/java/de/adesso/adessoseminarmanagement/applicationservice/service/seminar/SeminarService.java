@@ -4,6 +4,8 @@ import de.adesso.adessoseminarmanagement.applicationservice.repository.seminar.S
 import de.adesso.adessoseminarmanagement.domain.model.seminar.Seminar;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class SeminarService {
 
@@ -27,5 +29,9 @@ public class SeminarService {
 
     public void deleteSeminarById(Long id) {
         seminarRepository.deleteById(id);
+    }
+
+    public List<Seminar> getAllSeminar() {
+        return seminarRepository.findAll();
     }
 }
