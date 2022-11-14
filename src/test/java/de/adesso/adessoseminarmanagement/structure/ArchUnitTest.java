@@ -25,4 +25,12 @@ public class ArchUnitTest {
             .should()
             .accessClassesThat()
             .areAnnotatedWith(Controller.class);
+
+    @ArchTest
+    static final ArchRule noFieldShouldBePublicInDomainModelPerson = fields()
+            .that()
+            .areDeclaredIn(Person.class)
+            .should()
+            .notBePublic()
+            .because("For less coupling between component");
 }
