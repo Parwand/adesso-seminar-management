@@ -27,6 +27,6 @@ class PersonTest {
     void test_1() {
         person.seminarBuchen(22);
         List<Seminarbuchung> seminarbuchungen = person.getSeminarbuchungen();
-        assertThat(seminarbuchungen.size()).isEqualTo(2);
+        assertThat(seminarbuchungen.size()).isEqualTo(1);
     }
 }
