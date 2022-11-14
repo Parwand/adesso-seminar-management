@@ -5,6 +5,8 @@ import de.adesso.adessoseminarmanagement.domain.model.seminar.Seminarraum;
 import de.adesso.adessoseminarmanagement.infrastructure.exception.SeminarraumNotFoundException;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class SeminarraumRepoImpl implements SeminarraumRepo {
 
@@ -27,5 +29,10 @@ public class SeminarraumRepoImpl implements SeminarraumRepo {
     @Override
     public void deleteById(Long id) {
         seminarraumDao.deleteById(id);
+    }
+
+    @Override
+    public List<Seminarraum> findAll() {
+        return seminarraumDao.findAll();
     }
 }
