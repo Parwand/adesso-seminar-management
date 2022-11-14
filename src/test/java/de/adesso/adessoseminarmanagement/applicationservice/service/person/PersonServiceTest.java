@@ -1,5 +1,6 @@
 package de.adesso.adessoseminarmanagement.applicationservice.service.person;
 
+import de.adesso.adessoseminarmanagement.applicationservice.service.seminar.SeminarService;
 import de.adesso.adessoseminarmanagement.domain.model.person.Adresse;
 import de.adesso.adessoseminarmanagement.domain.model.person.Person;
 import de.adesso.adessoseminarmanagement.domain.model.seminar.Seminar;
@@ -23,6 +24,8 @@ class PersonServiceTest {
 
     @Autowired
     private PersonService personService;
+    @Autowired
+    private SeminarService seminarService;
 
     @Test
     @DisplayName("person should be saved in DB")
@@ -151,6 +154,7 @@ class PersonServiceTest {
     void test_7() {
         // Arrange
         Seminar seminar = new Seminar();
+        seminar.setTeilnehmeranzahl(10);
         Person person = new Person();
         person.setVorname("vorname7");
         person.setNachname("nachname7");
@@ -159,6 +163,7 @@ class PersonServiceTest {
         person.setAdresse(adresse);
         person.seminarBuchen(seminar);
         // Act
+        seminarService.saveSeminar(seminar);
         personService.save(person);
         // Assert
         assertThat(person.getSeminarbuchungen()).isNotNull();
