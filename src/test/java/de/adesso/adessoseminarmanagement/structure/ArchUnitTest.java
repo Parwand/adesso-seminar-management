@@ -41,4 +41,12 @@ public class ArchUnitTest {
             .should()
             .notBePublic()
             .because("For less coupling between component");
+
+    @ArchTest
+    static final ArchRule noFieldShouldBePublicInDomainModelSeminarraum = fields()
+            .that()
+            .areDeclaredIn(Seminarraum.class)
+            .should()
+            .notBePublic()
+            .because("For less coupling between component");
 }
