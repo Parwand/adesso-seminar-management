@@ -44,7 +44,7 @@ public class SeminarraumController {
         return new ResponseEntity<>(savedSeminarraum, HttpStatus.OK);
     }
 
-    @PutMapping ("/delete/{id}")
+    @DeleteMapping ("/delete/{id}")
     public ResponseEntity<?> deleteSeminar(@PathVariable("id") String seminarnummer) {
         seminarraumService.deleteSeminarraum(Long.parseLong(seminarnummer));
         return new ResponseEntity<>(HttpStatus.OK);
