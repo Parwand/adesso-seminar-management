@@ -1,7 +1,6 @@
 package de.adesso.adessoseminarmanagement.infrastructure.controller;
 
 import de.adesso.adessoseminarmanagement.applicationservice.service.seminar.SeminarraumService;
-import de.adesso.adessoseminarmanagement.domain.model.seminar.Seminar;
 import de.adesso.adessoseminarmanagement.domain.model.seminar.Seminarraum;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
