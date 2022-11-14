@@ -36,4 +36,10 @@ public class PersonController {
         Person savePerson = personService.save(person);
         return new ResponseEntity<>(savePerson, HttpStatus.CREATED);
     }
+
+    @PutMapping("/update")
+    public ResponseEntity<Person> updatePerson(@RequestBody Person person) {
+        Person updatedPerson = personService.update(person);
+        return new ResponseEntity<>(updatedPerson, HttpStatus.CREATED);
+    }
 }
