@@ -27,4 +27,18 @@ class SeminarraumServiceTest {
         // Assert
         assertThat(seminarraum.getRaumnummer()).isNotNull();
     }
+
+    @Test
+    @DisplayName("'seminarraum' which cane be loaded from database")
+    void test_2() {
+        // Arrange
+        Seminarraum seminarraum = new Seminarraum();
+        seminarraum.setMaximalePersonenanzahl(22L);
+        seminarraum.setAusstattung("with all services");
+        // Act
+        seminarraumService.saveSeminarraum(seminarraum);
+        Seminarraum seminarraumById = seminarraumService.getSeminarraumById(seminarraum.getRaumnummer());
+        // Assert
+        assertThat(seminarraumById).isEqualTo(seminarraum);
+    }
 }
