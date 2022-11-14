@@ -42,4 +42,10 @@ public class PersonController {
         Person updatedPerson = personService.update(person);
         return new ResponseEntity<>(updatedPerson, HttpStatus.CREATED);
     }
+
+    @PutMapping("/delete/{id}")
+    public ResponseEntity<?> deletePerson(@PathVariable String id) {
+        personService.deletePerson(Long.parseLong(id));
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }
