@@ -32,7 +32,7 @@ public class ArchUnitTest {
             .areDeclaredIn(Person.class)
             .should()
             .notBePublic()
-            .because("For less coupling between component");
+            .because("For less coupling between component and Injection with constructor");
 
     @ArchTest
     static final ArchRule noFieldShouldBePublicInDomainModelSeminar = fields()
@@ -40,7 +40,7 @@ public class ArchUnitTest {
             .areDeclaredIn(Seminar.class)
             .should()
             .notBePublic()
-            .because("For less coupling between component");
+            .because("For less coupling between component and Injection with constructor");
 
     @ArchTest
     static final ArchRule noFieldShouldBePublicInDomainModelSeminarraum = fields()
@@ -48,5 +48,13 @@ public class ArchUnitTest {
             .areDeclaredIn(Seminarraum.class)
             .should()
             .notBePublic()
-            .because("For less coupling between component");
+            .because("For less coupling between component and Injection with constructor");
+
+    @ArchTest
+    static final ArchRule noFieldShouldBePublicInDomainModelSeminarBuchung = fields()
+            .that()
+            .areDeclaredIn(Seminarbuchung.class)
+            .should()
+            .notBePublic()
+            .because("For less coupling between component and Injection with constructor");
 }
