@@ -27,25 +27,25 @@ public class SeminarraumController {
     }
 
     @PostMapping("/get/{id}")
-    public ResponseEntity<Seminarraum> getSeminar(@PathVariable String id) {
+    public ResponseEntity<Seminarraum> getSeminarraum(@PathVariable String id) {
         Seminarraum savedSeminarraum = seminarraumService.getSeminarraumById(Long.parseLong(id));
         return new ResponseEntity<>(savedSeminarraum, HttpStatus.FOUND);
     }
 
     @PostMapping("/add")
-    public ResponseEntity<Seminarraum> addSeminar(@RequestBody Seminarraum seminarraum) {
+    public ResponseEntity<Seminarraum> addSeminarraum(@RequestBody Seminarraum seminarraum) {
         Seminarraum savedSeminarraum = seminarraumService.saveSeminarraum(seminarraum);
         return new ResponseEntity<>(savedSeminarraum, HttpStatus.CREATED);
     }
 
     @PutMapping ("/update")
-    public ResponseEntity<Seminarraum> updateSeminar(@RequestBody Seminarraum seminarraum) {
+    public ResponseEntity<Seminarraum> updateSeminarraum(@RequestBody Seminarraum seminarraum) {
         Seminarraum savedSeminarraum = seminarraumService.updateSeminarraum(seminarraum);
         return new ResponseEntity<>(savedSeminarraum, HttpStatus.OK);
     }
 
     @DeleteMapping ("/delete/{id}")
-    public ResponseEntity<?> deleteSeminar(@PathVariable("id") String seminarnummer) {
+    public ResponseEntity<?> deleteSeminarraum(@PathVariable("id") String seminarnummer) {
         seminarraumService.deleteSeminarraum(Long.parseLong(seminarnummer));
         return new ResponseEntity<>(HttpStatus.OK);
     }
