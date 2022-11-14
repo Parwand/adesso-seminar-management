@@ -1,0 +1,30 @@
+package de.adesso.adessoseminarmanagement.applicationservice.service.seminar;
+
+import de.adesso.adessoseminarmanagement.domain.model.seminar.Seminar;
+import de.adesso.adessoseminarmanagement.domain.model.seminar.Seminarraum;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.*;
+
+@SpringBootTest
+class SeminarraumServiceTest {
+    @Autowired
+    private SeminarraumService seminarraumService;
+
+    @Test
+    @DisplayName("seminar room can be saved in DB")
+    void test_1() {
+        // Arrange
+        Seminarraum seminarraum = new Seminarraum();
+        seminarraum.setMaximalePersonenanzahl(22L);
+        seminarraum.setAusstattung("with all services");
+        // Act
+        seminarraumService.saveSeminarraum(seminarraum);
+        // Assert
+        assertThat(seminarraum.getRaumnummer()).isNotNull();
+    }
+}
