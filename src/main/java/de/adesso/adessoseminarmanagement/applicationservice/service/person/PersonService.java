@@ -35,4 +35,8 @@ public class PersonService {
         return personRepository.getAllPersons();
     }
 
+    public List<Person> getAllPersons() {
+        return personRepository.findAll();
+    }
+
 }

@@ -15,4 +15,6 @@ public interface PersonRepository {
     Person getPerson(Long id);
 
     List<Person> getAllPersons();
+
+    List<Person> findAll();
 }
