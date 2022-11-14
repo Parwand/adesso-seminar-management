@@ -23,7 +23,7 @@ public class Person {
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(nullable = false)
     private Adresse adresse;
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany
     @JoinTable(
             name = "person_seminar_map",
             joinColumns = {@JoinColumn(name = "person_id", referencedColumnName = "id")},
