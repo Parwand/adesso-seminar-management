@@ -26,7 +26,7 @@ public class Person {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "person_id", referencedColumnName = "id")
     private List<Seminar> seminarList;
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "person_buchung_map",
             joinColumns = { @JoinColumn(name = "person_id", referencedColumnName = "id")},
             inverseJoinColumns = @JoinColumn(name = "buchungsnummer", referencedColumnName = "buchungsnummer"))
@@ -44,7 +44,7 @@ public class Person {
         this.seminarbuchungen = seminarbuchungen;
     }
 
-    public UUID seminarBuchen(int seminarnummer) {
+    public UUID seminarBuchen(Long seminarnummer) {
         LocalDate buchungsdatum = LocalDate.now();
         UUID buchungsnummer = UUID.randomUUID();
         Seminarbuchung buchung = new Seminarbuchung(buchungsnummer, buchungsdatum, seminarnummer);
