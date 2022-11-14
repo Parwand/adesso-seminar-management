@@ -12,12 +12,12 @@ public class Seminarbuchung {
     private LocalDate buchungsdatum;
     @ManyToOne(targetEntity = Seminar.class)
     @JoinColumn(name = "seminarnummer", referencedColumnName = "seminarnummer")
-    private int seminar;
+    private Long seminar;
 
     public Seminarbuchung() {
     }
 
-    public Seminarbuchung(UUID buchungsnummer, LocalDate buchungsdatum, int seminar) {
+    public Seminarbuchung(UUID buchungsnummer, LocalDate buchungsdatum, Long seminar) {
         this.buchungsnummer = buchungsnummer;
         this.buchungsdatum = buchungsdatum;
         this.seminar = seminar;
@@ -39,11 +39,11 @@ public class Seminarbuchung {
         this.buchungsdatum = buchungsdatum;
     }
 
-    public int getSeminar() {
+    public Long getSeminar() {
         return seminar;
     }
 
-    public void setSeminar(int seminar) {
+    public void setSeminar(Long seminar) {
         this.seminar = seminar;
     }
 
