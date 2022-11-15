@@ -33,6 +33,6 @@ public class SeminarRepositoryImpl implements SeminarRepository {
 
     @Override
     public List<Seminar> findAll() {
-        return seminarDao.findAll();
+        return seminarDao.findAllByOrderBySeminarnummerAsc();
     }
 }
