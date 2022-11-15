@@ -33,6 +33,6 @@ public class SeminarraumRepoImpl implements SeminarraumRepository {
 
     @Override
     public List<Seminarraum> findAll() {
-        return seminarraumDao.findAll();
+        return seminarraumDao.findAllByOrderByRaumnummer();
     }
 }
