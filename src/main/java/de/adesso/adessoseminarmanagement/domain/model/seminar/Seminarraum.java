@@ -1,9 +1,8 @@
 package de.adesso.adessoseminarmanagement.domain.model.seminar;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -16,6 +15,8 @@ public class Seminarraum {
     private String name;
     private Long maximalePersonenanzahl;
     private String ausstattung;
+    @OneToMany(mappedBy = "seminarraum", cascade = CascadeType.REMOVE)
+    private final List<Seminar> seminare = new ArrayList<>();
 
     public Seminarraum() {
     }
