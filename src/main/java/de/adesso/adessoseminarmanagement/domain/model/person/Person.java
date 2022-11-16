@@ -23,12 +23,10 @@ public class Person {
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(nullable = false)
     private Adresse adresse;
-    @ManyToMany
-    @JoinTable(
-            name = "person_seminar_map",
-            joinColumns = {@JoinColumn(name = "person_id", referencedColumnName = "id")},
-            inverseJoinColumns = {@JoinColumn(name = "seminarnummer", referencedColumnName = "seminarnummer")}
-    )
+    /* Seminar wird von einer Person geleitet und
+    Person kann mehrere Seminare leiten */
+    @OneToMany
+    @JoinColumn(name = "person_id", referencedColumnName = "id")
     private List<Seminar> seminarList;
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "person_buchung_map",
