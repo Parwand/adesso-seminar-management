@@ -1,5 +1,7 @@
 package de.adesso.adessoseminarmanagement.domain.model.seminar;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -24,6 +26,7 @@ public class Seminar {
     private Seminarraum seminarraum;
     // Ein Seminar hat eine Liste von Buchungen
     @OneToMany(mappedBy = "seminar", cascade = CascadeType.REMOVE)
+    @JsonIgnore
     private final List<Seminarbuchung> buchungen = new ArrayList<>();
 
     public Seminar() {
