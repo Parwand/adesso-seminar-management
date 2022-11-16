@@ -173,4 +173,26 @@ class PersonServiceTest {
         // Assert
         assertThat(person.getSeminarbuchungen()).isNotNull();
     }
+
+    @Test
+    @DisplayName("person can cancele booking of seminar, than booking should be removed from db")
+    void test_8() {
+        // Arrange
+        Seminar seminar = new Seminar();
+        seminar.setTeilnehmeranzahl(10);
+        Person person = new Person();
+        person.setVorname("vorname8");
+        person.setNachname("nachname8");
+        person.setGeburtsdatum(LocalDate.of(1995, 8, 20));
+        Adresse adresse = new Adresse("Hamburg", "Lion", "30a", "33229");
+        person.setAdresse(adresse);
+        person.seminarBuchen(seminar);
+        // Act
+        seminarService.saveSeminar(seminar);
+        personService.save(person);
+        person.buchungStornieren(person.getSeminarbuchungen().get(0).getBuchungsnummer());
+        personService.save(person);
+        // Assert
+        assertThat(person.getSeminarbuchungen().size()).isEqualTo(0);
+    }
 }
