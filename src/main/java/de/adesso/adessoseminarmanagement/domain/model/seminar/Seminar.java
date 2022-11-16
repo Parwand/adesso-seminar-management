@@ -1,6 +1,7 @@
 package de.adesso.adessoseminarmanagement.domain.model.seminar;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -23,6 +24,7 @@ public class Seminar {
     private String voraussetzung;
     @ManyToOne
     @JoinColumn(name = "seminarraum", referencedColumnName = "raumnummer")
+    @JsonProperty("Seminarraum")
     private Seminarraum seminarraum;
     // Ein Seminar hat eine Liste von Buchungen
     @OneToMany(mappedBy = "seminar", cascade = CascadeType.REMOVE)
