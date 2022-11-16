@@ -2,6 +2,8 @@ package de.adesso.adessoseminarmanagement.domain.model.seminar;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -20,6 +22,9 @@ public class Seminar {
     @ManyToOne
     @JoinColumn(name = "seminarraum", referencedColumnName = "raumnummer")
     private Seminarraum seminarraum;
+    // Ein Seminar hat eine Liste von Buchungen
+    @OneToMany(mappedBy = "seminar", cascade = CascadeType.REMOVE)
+    private final List<Seminarbuchung> buchungen = new ArrayList<>();
 
     public Seminar() {
     }
@@ -105,6 +110,10 @@ public class Seminar {
 
     public void setSeminarraum(Seminarraum seminarraum) {
         this.seminarraum = seminarraum;
+    }
+
+    public List<Seminarbuchung> getBuchungen() {
+        return buchungen;
     }
 
     @Override
