@@ -67,7 +67,7 @@ public class PersonController {
     }
 
     @PostMapping("/seminar/buchen")
-    public ResponseEntity<UUID> seminarBuchen(@Param("buchungsnummer") String seminarnummer, @Param("personId") String personId) {
+    public ResponseEntity<UUID> seminarBuchen(@Param("seminarnummer") String seminarnummer, @Param("personId") String personId) {
         UUID buchungsnummer = personService.seminarBuchen(Long.parseLong(seminarnummer), Long.parseLong(personId));
         return new ResponseEntity<>(buchungsnummer, HttpStatus.OK);
     }
