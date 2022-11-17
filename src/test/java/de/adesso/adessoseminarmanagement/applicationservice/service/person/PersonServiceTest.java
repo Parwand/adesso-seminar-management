@@ -7,8 +7,7 @@ import de.adesso.adessoseminarmanagement.domain.model.person.Person;
 import de.adesso.adessoseminarmanagement.domain.model.seminar.Seminar;
 import de.adesso.adessoseminarmanagement.domain.model.seminar.Seminarraum;
 import de.adesso.adessoseminarmanagement.infrastructure.exception.PersonNotFoundException;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -21,6 +20,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @SpringBootTest
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class PersonServiceTest {
 
     @Autowired
@@ -29,6 +29,16 @@ class PersonServiceTest {
     private SeminarService seminarService;
     @Autowired
     private SeminarraumService seminarraumService;
+    private static final Seminarraum SEMINARRAUM_1 = new Seminarraum("name1", 10L, "All");
+    private static final Seminarraum SEMINARRAUM_2 = new Seminarraum("name2", 30L, "All Services");
+    private static final Seminarraum SEMINARRAUM_3 = new Seminarraum("name3", 23L, "All Services");
+
+    @BeforeAll
+    void setup() {
+        seminarraumService.saveSeminarraum(SEMINARRAUM_1);
+        seminarraumService.saveSeminarraum(SEMINARRAUM_2);
+        seminarraumService.saveSeminarraum(SEMINARRAUM_3);
+    }
 
     @Test
     @DisplayName("person should be saved in DB")
@@ -55,11 +65,10 @@ class PersonServiceTest {
         person.setNachname("nachname2");
         person.setGeburtsdatum(LocalDate.of(1994, 3, 12));
         Adresse adresse = new Adresse("KO", "Uni", "13a", "20344");
-        Seminarraum seminarraum1 = new Seminarraum("name1", 10L, "All");
-        seminarraumService.saveSeminarraum(seminarraum1);
         Seminar seminar1 = new Seminar("seminarTitle1",
                 LocalDateTime.of(LocalDate.of(2022, 11, 11), LocalTime.of(11, 0)),
-                LocalDateTime.of(LocalDate.of(2022, 11, 11), LocalTime.of(12, 0)), "kursinhalt", 10, "seminarleiter1",  "voraussetzung1", seminarraum1);
+                LocalDateTime.of(LocalDate.of(2022, 11, 11), LocalTime.of(12, 0)),
+                "kursinhalt", 10, "seminarleiter1",  "voraussetzung1", SEMINARRAUM_1);
         seminarService.saveSeminar(seminar1);
         person.setAdresse(adresse);
         person.setSeminarList(List.of(seminar1));
@@ -158,7 +167,10 @@ class PersonServiceTest {
     @DisplayName("person should be saved in DB with booking of seminar")
     void test_7() {
         // Arrange
-        Seminar seminar = new Seminar();
+        Seminar seminar = new Seminar("Angular & Spring Boot",
+                LocalDateTime.of(LocalDate.of(2022, 12, 11), LocalTime.of(11, 0)),
+                LocalDateTime.of(LocalDate.of(2022, 12, 22), LocalTime.of(12, 0)),
+                "kursinhalt", 10, "seminarleiter7",  "voraussetzung7", SEMINARRAUM_2);
         seminar.setTeilnehmeranzahl(10);
         Person person = new Person();
         person.setVorname("vorname7");
@@ -178,7 +190,10 @@ class PersonServiceTest {
     @DisplayName("person can cancele booking of seminar, than booking should be removed from db")
     void test_8() {
         // Arrange
-        Seminar seminar = new Seminar();
+        Seminar seminar = new Seminar("Micro Services",
+                LocalDateTime.of(LocalDate.of(2023, 1, 22), LocalTime.of(11, 0)),
+                LocalDateTime.of(LocalDate.of(2023, 1, 26), LocalTime.of(12, 0)),
+                "kursinhalt", 10, "seminarleiter8",  "voraussetzung8", SEMINARRAUM_3);
         seminar.setTeilnehmeranzahl(10);
         Person person = new Person();
         person.setVorname("vorname8");
