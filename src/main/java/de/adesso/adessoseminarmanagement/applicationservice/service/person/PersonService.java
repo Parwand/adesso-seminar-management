@@ -2,6 +2,7 @@ package de.adesso.adessoseminarmanagement.applicationservice.service.person;
 
 import de.adesso.adessoseminarmanagement.applicationservice.repository.person.PersonRepository;
 import de.adesso.adessoseminarmanagement.domain.model.person.Person;
+import de.adesso.adessoseminarmanagement.domain.model.seminar.Seminar;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -49,6 +50,13 @@ public class PersonService {
         } else {
             return false;
         }
+    }
+
+    public UUID seminarBuchen(Seminar seminar, Long personId) {
+        Person person = personRepository.getPerson(personId);
+        UUID buchungsnummer = person.seminarBuchen(seminar);
+        personRepository.savePerson(person);
+        return buchungsnummer;
     }
 
 }
