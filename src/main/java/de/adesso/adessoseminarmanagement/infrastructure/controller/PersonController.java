@@ -51,7 +51,7 @@ public class PersonController {
     }
 
     @GetMapping("/buchungen/{personId}")
-    public ResponseEntity<List<Seminarbuchung>> getBuchungen(@PathVariable String personId) {
+    public ResponseEntity<List<Seminarbuchung>> getBuchungenByPersonId(@PathVariable String personId) {
         Person person = personService.getPerson(Long.parseLong(personId));
         List<Seminarbuchung> seminarbuchungen = person.getSeminarbuchungen();
         return new ResponseEntity<>(seminarbuchungen, HttpStatus.OK);
