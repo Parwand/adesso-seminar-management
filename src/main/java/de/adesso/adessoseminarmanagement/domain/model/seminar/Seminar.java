@@ -27,7 +27,7 @@ public class Seminar {
     @JsonProperty("Seminarraum")
     private Seminarraum seminarraum;
     // Ein Seminar hat eine Liste von Buchungen
-    @OneToMany(mappedBy = "seminar", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "seminar", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
     @JsonIgnore
     private final List<Seminarbuchung> buchungen = new ArrayList<>();
 
