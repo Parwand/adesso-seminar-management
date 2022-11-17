@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @Controller
 @RequestMapping("/person")
@@ -55,5 +56,11 @@ public class PersonController {
         Person person = personService.getPerson(Long.parseLong(personId));
         List<Seminarbuchung> seminarbuchungen = person.getSeminarbuchungen();
         return new ResponseEntity<>(seminarbuchungen, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/buchung/stornieren")
+    public ResponseEntity<?> buchungStorniere(String buchungsnummer, String personId) {
+        personService.buchungStornieren(UUID.fromString(buchungsnummer), Long.parseLong(personId));
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }
