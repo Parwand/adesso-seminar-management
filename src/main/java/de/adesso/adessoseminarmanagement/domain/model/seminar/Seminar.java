@@ -127,11 +127,13 @@ public class Seminar {
                 "seminarnummer=" + seminarnummer +
                 ", seminarTitle='" + seminarTitle + '\'' +
                 ", beginn=" + beginn +
-                ", end=" + ende +
+                ", ende=" + ende +
                 ", kursinhalt='" + kursinhalt + '\'' +
                 ", Teilnehmeranzahl=" + Teilnehmeranzahl +
                 ", seminarleiter='" + seminarleiter + '\'' +
                 ", voraussetzung='" + voraussetzung + '\'' +
+                ", seminarraum=" + seminarraum +
+                ", buchungen=" + buchungen +
                 '}';
     }
 
