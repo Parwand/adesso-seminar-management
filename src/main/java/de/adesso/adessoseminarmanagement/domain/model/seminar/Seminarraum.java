@@ -63,6 +63,7 @@ public class Seminarraum {
     public String toString() {
         return "Seminarraum{" +
                 "raumnummer=" + raumnummer +
+                ", name='" + name + '\'' +
                 ", maximalePersonenanzahl=" + maximalePersonenanzahl +
                 ", ausstattung='" + ausstattung + '\'' +
                 '}';
