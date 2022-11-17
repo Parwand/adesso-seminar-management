@@ -2,6 +2,7 @@ package de.adesso.adessoseminarmanagement.infrastructure.controller;
 
 import de.adesso.adessoseminarmanagement.applicationservice.service.person.PersonService;
 import de.adesso.adessoseminarmanagement.domain.model.person.Person;
+import de.adesso.adessoseminarmanagement.domain.model.seminar.Seminar;
 import de.adesso.adessoseminarmanagement.domain.model.seminar.Seminarbuchung;
 import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
@@ -63,5 +64,11 @@ public class PersonController {
     public ResponseEntity<?> buchungStorniere(@Param("buchungsnummer") String buchungsnummer, @Param("personId") String personId) {
         personService.buchungStornieren(UUID.fromString(buchungsnummer), Long.parseLong(personId));
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PostMapping("/seminar/buchen")
+    public ResponseEntity<UUID> seminarBuchen(@Param("buchungsnummer") Seminar seminar, @Param("personId") String personId) {
+        UUID buchungsnummer = personService.seminarBuchen(seminar, Long.parseLong(personId));
+        return new ResponseEntity<>(buchungsnummer, HttpStatus.OK);
     }
 }
