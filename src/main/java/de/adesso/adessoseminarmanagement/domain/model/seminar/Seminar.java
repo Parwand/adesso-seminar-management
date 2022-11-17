@@ -24,7 +24,7 @@ public class Seminar {
     private String voraussetzung;
     @ManyToOne
     @JoinColumn(name = "seminarraum", referencedColumnName = "raumnummer")
-    @JsonProperty("Seminarraum")
+    @JsonProperty("seminarraum")
     private Seminarraum seminarraum;
     // Ein Seminar hat eine Liste von Buchungen
     @OneToMany(mappedBy = "seminar", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
