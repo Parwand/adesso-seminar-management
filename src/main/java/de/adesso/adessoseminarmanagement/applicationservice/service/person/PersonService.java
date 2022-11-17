@@ -5,6 +5,7 @@ import de.adesso.adessoseminarmanagement.domain.model.person.Person;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class PersonService {
@@ -37,6 +38,17 @@ public class PersonService {
 
     public List<Person> getAllPersons() {
         return personRepository.findAll();
+    }
+
+    public Boolean buchungStornieren(UUID buchungsnummer, Long personId) {
+        Person person = personRepository.getPerson(personId);
+        boolean result = person.buchungStornieren(buchungsnummer);
+        if (result) {
+            personRepository.savePerson(person);
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }
