@@ -58,7 +58,7 @@ public class PersonController {
         return new ResponseEntity<>(seminarbuchungen, HttpStatus.OK);
     }
 
-    @DeleteMapping("/buchung/stornieren")
+    @PostMapping("/buchung/stornieren")
     public ResponseEntity<?> buchungStorniere(String buchungsnummer, String personId) {
         personService.buchungStornieren(UUID.fromString(buchungsnummer), Long.parseLong(personId));
         return new ResponseEntity<>(HttpStatus.OK);
