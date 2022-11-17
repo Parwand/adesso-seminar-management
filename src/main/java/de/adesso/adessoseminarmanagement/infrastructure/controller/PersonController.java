@@ -2,6 +2,7 @@ package de.adesso.adessoseminarmanagement.infrastructure.controller;
 
 import de.adesso.adessoseminarmanagement.applicationservice.service.person.PersonService;
 import de.adesso.adessoseminarmanagement.domain.model.person.Person;
+import de.adesso.adessoseminarmanagement.domain.model.seminar.Seminarbuchung;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -47,5 +48,12 @@ public class PersonController {
     public ResponseEntity<?> deletePerson(@PathVariable String id) {
         personService.deletePerson(Long.parseLong(id));
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @GetMapping("/buchungen/{personId}")
+    public ResponseEntity<List<Seminarbuchung>> getBuchungen(@PathVariable String personId) {
+        Person person = personService.getPerson(Long.parseLong(personId));
+        List<Seminarbuchung> seminarbuchungen = person.getSeminarbuchungen();
+        return new ResponseEntity<>(seminarbuchungen, HttpStatus.OK);
     }
 }
