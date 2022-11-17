@@ -18,6 +18,7 @@ class SeminarraumServiceTest {
     void test_1() {
         // Arrange
         Seminarraum seminarraum = new Seminarraum();
+        seminarraum.setName("Heinrich Heine");
         seminarraum.setMaximalePersonenanzahl(22L);
         seminarraum.setAusstattung("with all services");
         // Act
@@ -31,6 +32,7 @@ class SeminarraumServiceTest {
     void test_2() {
         // Arrange
         Seminarraum seminarraum = new Seminarraum();
+        seminarraum.setName("Adesso SE");
         seminarraum.setMaximalePersonenanzahl(22L);
         seminarraum.setAusstattung("with all services");
         // Act
