@@ -47,4 +47,20 @@ class PersonTest {
         // Assert
         assertThat(seminarbuchungenAfterCancel.size()).isEqualTo(0);
     }
+
+    @Test
+    @DisplayName("Person can not book the same seminar twice")
+    void test_3() {
+        // Arrange
+        Seminar seminar = new Seminar();
+        // Act
+        Boolean isBooked_1 = person.seminarBuchen(seminar);
+        Boolean isBooked_2 = person.seminarBuchen(seminar);
+        List<Seminarbuchung> seminarbuchungen = person.getSeminarbuchungen();
+
+        // Assert
+        assertThat(isBooked_1).isTrue();
+        assertThat(isBooked_2).isFalse();
+        assertThat(seminarbuchungen.size()).isEqualTo(1);
+    }
 }
