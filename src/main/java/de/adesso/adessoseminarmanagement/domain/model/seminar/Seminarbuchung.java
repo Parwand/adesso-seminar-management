@@ -1,11 +1,10 @@
 package de.adesso.adessoseminarmanagement.domain.model.seminar;
 
-import de.adesso.adessoseminarmanagement.domain.model.person.Person;
-
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -17,9 +16,6 @@ public class Seminarbuchung {
     @ManyToOne()
     @JoinColumn(name = "seminarnummer", referencedColumnName = "seminarnummer")
     private Seminar seminar;
-
-    @ManyToMany(mappedBy = "seminarbuchungen", cascade = CascadeType.REMOVE)
-    private List<Person> personList = new ArrayList<>();
 
     public Seminarbuchung() {
     }

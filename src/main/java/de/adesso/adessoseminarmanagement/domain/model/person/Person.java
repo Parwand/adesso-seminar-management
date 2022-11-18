@@ -28,10 +28,8 @@ public class Person {
     @OneToMany
     @JoinColumn(name = "person_id", referencedColumnName = "id")
     private List<Seminar> seminarList;
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "person_buchung_map",
-            joinColumns = { @JoinColumn(name = "person_id", referencedColumnName = "id")},
-            inverseJoinColumns = @JoinColumn(name = "buchungsnummer", referencedColumnName = "buchungsnummer"))
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "person_id", referencedColumnName = "id")
     private List<Seminarbuchung> seminarbuchungen = new ArrayList<>();
 
     public Person() {
@@ -47,6 +45,8 @@ public class Person {
     }
 
     public UUID seminarBuchen(Seminar seminar) {
+        List<Seminarbuchung> seminarbuchung = seminarbuchungen.stream().filter(b -> b.getSeminar() == seminar).toList();
+        // if (seminarbuchung.size() > 0) return null;
         LocalDate buchungsdatum = LocalDate.now();
         UUID buchungsnummer = UUID.randomUUID();
         Seminarbuchung buchung = new Seminarbuchung(buchungsnummer, buchungsdatum, seminar);
