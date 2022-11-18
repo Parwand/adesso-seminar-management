@@ -46,7 +46,7 @@ public class Person {
 
     public Boolean seminarBuchen(Seminar seminar) {
         List<Seminarbuchung> seminarbuchung = seminarbuchungen.stream().filter(b -> b.getSeminar() == seminar).toList();
-        // if (seminarbuchung.size() > 0) return null;
+        if (seminarbuchung.size() > 0) return false;
         LocalDate buchungsdatum = LocalDate.now();
         UUID buchungsnummer = UUID.randomUUID();
         Seminarbuchung buchung = new Seminarbuchung(buchungsnummer, buchungsdatum, seminar);
