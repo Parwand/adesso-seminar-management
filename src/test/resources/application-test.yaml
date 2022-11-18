@@ -1,0 +1,5 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:db;DB_ClOSE_DELAY=-1;DATABASE_TO_UPPER=false;MODE=MYSQL;CASE_INSENSITIVE_IDENTIFIERS=TRUE
+    username: sa
+    password: sa
