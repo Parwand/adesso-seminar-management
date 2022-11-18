@@ -55,12 +55,12 @@ public class PersonService {
         }
     }
 
-    public UUID seminarBuchen(Long seminarnummer, Long personId) {
+    public Boolean seminarBuchen(Long seminarnummer, Long personId) {
         Person person = personRepository.getPerson(personId);
         Seminar seminar = seminarService.getSeminarById(seminarnummer);
-        UUID buchungsnummer = person.seminarBuchen(seminar);
+        Boolean istGebucht = person.seminarBuchen(seminar);
         personRepository.savePerson(person);
-        return buchungsnummer;
+        return istGebucht;
     }
 
 }

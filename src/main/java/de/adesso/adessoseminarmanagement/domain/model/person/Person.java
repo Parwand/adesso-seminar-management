@@ -44,14 +44,14 @@ public class Person {
         this.seminarbuchungen = seminarbuchungen;
     }
 
-    public UUID seminarBuchen(Seminar seminar) {
+    public Boolean seminarBuchen(Seminar seminar) {
         List<Seminarbuchung> seminarbuchung = seminarbuchungen.stream().filter(b -> b.getSeminar() == seminar).toList();
         // if (seminarbuchung.size() > 0) return null;
         LocalDate buchungsdatum = LocalDate.now();
         UUID buchungsnummer = UUID.randomUUID();
         Seminarbuchung buchung = new Seminarbuchung(buchungsnummer, buchungsdatum, seminar);
         seminarbuchungen.add(buchung);
-        return buchung.getBuchungsnummer();
+        return true;
     }
 
     public boolean buchungStornieren(UUID buchungsnummer) {
