@@ -10,6 +10,7 @@ import de.adesso.adessoseminarmanagement.infrastructure.exception.PersonNotFound
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -21,6 +22,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @SpringBootTest
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@ActiveProfiles("test")
 class PersonServiceTest {
 
     @Autowired
@@ -201,7 +203,7 @@ class PersonServiceTest {
         person.setGeburtsdatum(LocalDate.of(1995, 8, 20));
         Adresse adresse = new Adresse("Hamburg", "Lion", "30a", "33229");
         person.setAdresse(adresse);
-        person.seminarBuchen(seminar);
+        //person.seminarBuchen(seminar);
         // Act
         seminarService.saveSeminar(seminar);
         personService.save(person);
