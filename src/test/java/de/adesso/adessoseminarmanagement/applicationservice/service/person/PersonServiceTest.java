@@ -212,6 +212,6 @@ class PersonServiceTest {
         person.buchungStornieren(person.getSeminarbuchungen().get(0).getBuchungsnummer());
         personService.save(person);
         // Assert
-        assertThat(person.getSeminarbuchungen().size()).isEqualTo(1);
+        assertThat(person.getSeminarbuchungen().size()).isEqualTo(0);
     }
 }
