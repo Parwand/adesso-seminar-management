@@ -20,10 +20,10 @@ public class Person {
     private String vorname;
     @Column(nullable = false)
     private String nachname;
-    @Column(nullable = false)
+    @Column
     private LocalDate geburtsdatum;
     @ManyToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(nullable = false)
+    @JoinColumn
     private Adresse adresse;
     /* Seminar wird von einer Person geleitet und
     Person kann mehrere Seminare leiten */
