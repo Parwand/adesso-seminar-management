@@ -35,8 +35,8 @@ public class PersonController {
         return new ResponseEntity<>(person, HttpStatus.FOUND);
     }
 
-    @GetMapping("/get/{username}")
-    public ResponseEntity<Person> getPersonByUsername(@PathVariable String username) {
+    @GetMapping("/getByUsername/")
+    public ResponseEntity<Person> getPersonByUsername(@Param("username") String username) {
         Person person = personService.getPersonByUsername(username);
         return new ResponseEntity<>(person, HttpStatus.FOUND);
     }
