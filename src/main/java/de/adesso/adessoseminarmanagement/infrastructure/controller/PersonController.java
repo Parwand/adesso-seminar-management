@@ -2,7 +2,6 @@ package de.adesso.adessoseminarmanagement.infrastructure.controller;
 
 import de.adesso.adessoseminarmanagement.applicationservice.service.person.PersonService;
 import de.adesso.adessoseminarmanagement.domain.model.person.Person;
-import de.adesso.adessoseminarmanagement.domain.model.seminar.Seminar;
 import de.adesso.adessoseminarmanagement.domain.model.seminar.Seminarbuchung;
 import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
