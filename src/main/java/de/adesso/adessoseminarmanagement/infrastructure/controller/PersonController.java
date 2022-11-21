@@ -35,6 +35,12 @@ public class PersonController {
         return new ResponseEntity<>(person, HttpStatus.FOUND);
     }
 
+    @GetMapping("/get/{username}")
+    public ResponseEntity<Person> getPersonByUsername(@PathVariable String username) {
+        Person person = personService.getPersonByUsername(username);
+        return new ResponseEntity<>(person, HttpStatus.FOUND);
+    }
+
     @PostMapping("/add")
     public ResponseEntity<Person> addPerson(@RequestBody Person person) {
         Person savePerson = personService.save(person);
