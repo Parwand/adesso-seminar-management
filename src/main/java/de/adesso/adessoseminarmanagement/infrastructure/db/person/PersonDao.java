@@ -7,4 +7,6 @@ import java.util.Optional;
 
 public interface PersonDao extends JpaRepository<Person, Long> {
     Optional<Person> findPersonById(Long id);
+
+    Person findByUsername(String username);
 }

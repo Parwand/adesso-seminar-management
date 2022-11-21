@@ -36,6 +36,10 @@ public class PersonService {
         return personRepository.getPerson(id);
     }
 
+    public Person getPersonByUsername(String username) {
+        return personRepository.findPersonByUsername(username);
+    }
+
     public List<Person> personList() {
         return personRepository.getAllPersons();
     }

@@ -39,4 +39,9 @@ public class PersonRepositoryImpl implements PersonRepository {
     public List<Person> findAll() {
         return personDao.findAll();
     }
+
+    @Override
+    public Person findPersonByUsername(String username) {
+        return personDao.findByUsername(username);
+    }
 }

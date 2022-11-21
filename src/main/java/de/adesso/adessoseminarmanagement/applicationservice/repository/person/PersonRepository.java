@@ -17,4 +17,6 @@ public interface PersonRepository {
     List<Person> getAllPersons();
 
     List<Person> findAll();
+
+    Person findPersonByUsername(String username);
 }
