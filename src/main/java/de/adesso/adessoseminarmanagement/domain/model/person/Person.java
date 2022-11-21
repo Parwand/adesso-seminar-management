@@ -14,6 +14,8 @@ public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable = false, unique = true)
+    private String username;
     @Column(nullable = false)
     private String vorname;
     @Column(nullable = false)
@@ -67,6 +69,14 @@ public class Person {
         seminar.setTeilnehmeranzahl(teilnehmeranzahl);
         seminarbuchungen.remove(seminarbuchung);
         return true;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getVorname() {
