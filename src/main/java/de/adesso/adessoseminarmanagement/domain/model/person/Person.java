@@ -37,7 +37,8 @@ public class Person {
     public Person() {
     }
 
-    public Person(String vorname, String nachname, LocalDate geburtsdatum, Adresse adresse, List<Seminar> seminarList, List<Seminarbuchung> seminarbuchungen) {
+    public Person(String username, String vorname, String nachname, LocalDate geburtsdatum, Adresse adresse, List<Seminar> seminarList, List<Seminarbuchung> seminarbuchungen) {
+        this.username = username;
         this.vorname = vorname;
         this.nachname = nachname;
         this.geburtsdatum = geburtsdatum;
