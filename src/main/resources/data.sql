@@ -1,5 +1,5 @@
 INSERT INTO adresse(stadt, strasse, strassennummer, plz) VALUES ('DUE', 'Eller', '23', '34422');
-INSERT INTO person(geburtsdatum, vorname, nachname, adresse_id) VALUES ('1990-12-12', 'Lea', 'Lion', 1);
+INSERT INTO person(username, geburtsdatum, vorname, nachname, adresse_id) VALUES ('lea', '1990-12-12', 'Lea', 'Lion', 1);
 INSERT INTO seminarraum(name, maximale_personenanzahl, ausstattung) VALUES ('Heinrich-Heine', 10, '​Flipchart; Whiteboard; 75"Display, Polycom Trio 8080 und Clickshare');
 INSERT INTO seminarraum(name, maximale_personenanzahl, ausstattung) VALUES ('​Günter Grass', 10, '​Flipchart; Whiteboard; 75"Display, Polycom Trio 8080 und Clickshare');
 INSERT INTO seminarraum(name, maximale_personenanzahl, ausstattung) VALUES ('Fritz Henkel - Interaction Room', 10, '​Flipchart; Whiteboard; 75"Display, Polycom Trio 8080 und Clickshare');
