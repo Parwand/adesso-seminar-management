@@ -2,7 +2,6 @@ package de.adesso.adessoseminarmanagement.infrastructure.controller;
 
 import de.adesso.adessoseminarmanagement.applicationservice.service.person.PersonService;
 import de.adesso.adessoseminarmanagement.domain.model.person.Person;
-import de.adesso.adessoseminarmanagement.domain.model.seminar.Seminar;
 import de.adesso.adessoseminarmanagement.domain.model.seminar.Seminarbuchung;
 import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
@@ -36,7 +35,7 @@ public class PersonController {
     }
 
     @GetMapping("/getByUsername/{username}")
-    public ResponseEntity<Person> getPersonByUsername(@PathVariable String username) {
+    public ResponseEntity<Person> getPersonByUsername(@PathVariable("username") String username) {
         Person person = personService.getPersonByUsername(username);
         return new ResponseEntity<>(person, HttpStatus.FOUND);
     }
