@@ -46,7 +46,11 @@ public class Person {
 
     public Boolean seminarBuchen(Seminar seminar) {
         List<Seminarbuchung> seminarbuchung = seminarbuchungen.stream().filter(b -> b.getSeminar() == seminar).toList();
-        if (seminarbuchung.size() > 0) return false;
+        if (seminarbuchung.size() > 0
+                || seminar.getSeminarnummer() > seminar.getSeminarraum().getMaximalePersonenanzahl()) return false;
+        int teilnehmeranzahl = seminar.getTeilnehmeranzahl();
+        teilnehmeranzahl++;
+        seminar.setTeilnehmeranzahl(teilnehmeranzahl);
         LocalDate buchungsdatum = LocalDate.now();
         UUID buchungsnummer = UUID.randomUUID();
         Seminarbuchung buchung = new Seminarbuchung(buchungsnummer, buchungsdatum, seminar);
@@ -57,6 +61,10 @@ public class Person {
     public boolean buchungStornieren(UUID buchungsnummer) {
         List<Seminarbuchung> collect = seminarbuchungen.stream().filter((b) -> b.getBuchungsnummer().equals(buchungsnummer)).toList();
         Seminarbuchung seminarbuchung = collect.get(0);
+        Seminar seminar = seminarbuchung.getSeminar();
+        int teilnehmeranzahl = seminar.getTeilnehmeranzahl();
+        teilnehmeranzahl--;
+        seminar.setTeilnehmeranzahl(teilnehmeranzahl);
         seminarbuchungen.remove(seminarbuchung);
         return true;
     }
