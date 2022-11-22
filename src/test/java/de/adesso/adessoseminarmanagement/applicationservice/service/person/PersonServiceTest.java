@@ -215,6 +215,7 @@ class PersonServiceTest {
         person.setGeburtsdatum(LocalDate.of(1995, 8, 20));
         Adresse adresse = new Adresse("Hamburg", "Lion", "30a", "33229");
         person.setAdresse(adresse);
+        seminarService.saveSeminar(seminar);
         person.seminarBuchen(seminar);
         // Act
         seminarService.saveSeminar(seminar);
