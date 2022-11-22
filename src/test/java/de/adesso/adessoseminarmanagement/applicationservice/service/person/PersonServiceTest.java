@@ -49,6 +49,7 @@ class PersonServiceTest {
     void test_1() {
         // Arrange
         Person person = new Person();
+        person.setUsername("username1");
         person.setVorname("vorname1");
         person.setNachname("nachname1");
         person.setGeburtsdatum(LocalDate.of(1994, 3, 12));
@@ -65,6 +66,7 @@ class PersonServiceTest {
     void test_2() {
         // Arrange
         Person person = new Person();
+        person.setUsername("username2");
         person.setVorname("vorname2");
         person.setNachname("nachname2");
         person.setGeburtsdatum(LocalDate.of(1994, 3, 12));
@@ -87,6 +89,7 @@ class PersonServiceTest {
     void test_3() {
         // Arrange
         Person person = new Person();
+        person.setUsername("username3");
         person.setVorname("vorname3");
         person.setNachname("nachname3");
         person.setGeburtsdatum(LocalDate.of(1991, 4, 23));
@@ -112,6 +115,7 @@ class PersonServiceTest {
     void test_4() {
         // Arrange
         Person person = new Person();
+        person.setUsername("username4");
         person.setVorname("vorname4");
         person.setNachname("nachname4");
         person.setGeburtsdatum(LocalDate.of(2000, 4, 8));
@@ -130,6 +134,7 @@ class PersonServiceTest {
     void test_5() {
         // Arrange
         Person person = new Person();
+        person.setUsername("username5");
         person.setVorname("vorname5");
         person.setNachname("nachname5");
         person.setGeburtsdatum(LocalDate.of(2000, 4, 8));
@@ -148,6 +153,7 @@ class PersonServiceTest {
         // Arrange
         // Person 1
         Person person1 = new Person();
+        person1.setUsername("username-person1");
         person1.setVorname("vorname-person1");
         person1.setNachname("nachname-person1");
         person1.setGeburtsdatum(LocalDate.of(2000, 4, 8));
@@ -155,6 +161,7 @@ class PersonServiceTest {
         person1.setAdresse(adresse1);
         // Person 2
         Person person2 = new Person();
+        person2.setUsername("username-person2");
         person2.setVorname("vorname-person2");
         person2.setNachname("nachname-person2");
         person2.setGeburtsdatum(LocalDate.of(1993, 7, 2));
@@ -177,6 +184,7 @@ class PersonServiceTest {
                 "kursinhalt", 10, "seminarleiter7",  "voraussetzung7", SEMINARRAUM_2);
         seminar.setTeilnehmeranzahl(10);
         Person person = new Person();
+        person.setUsername("username7");
         person.setVorname("vorname7");
         person.setNachname("nachname7");
         person.setGeburtsdatum(LocalDate.of(1995, 8, 20));
@@ -200,6 +208,7 @@ class PersonServiceTest {
                 "kursinhalt", 10, "seminarleiter8",  "voraussetzung8", SEMINARRAUM_3);
         seminar.setTeilnehmeranzahl(10);
         Person person = new Person();
+        person.setUsername("username8");
         person.setVorname("vorname8");
         person.setNachname("nachname8");
         person.setGeburtsdatum(LocalDate.of(1995, 8, 20));
