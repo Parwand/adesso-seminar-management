@@ -45,8 +45,14 @@ class PersonTest {
     @Test
     @DisplayName("Person can cancel a booking of seminar")
     void test_2() {
-        // Act
+        // Arrange
         Seminar seminar = new Seminar();
+        Seminarraum seminarraum = new Seminarraum();
+        seminarraum.setMaximalePersonenanzahl(12L);
+        seminar.setTeilnehmeranzahl(3);
+        seminar.setSeminarnummer(1L);
+        seminar.setSeminarraum(seminarraum);
+        // Act
         person.seminarBuchen(seminar);
         List<Seminarbuchung> seminarbuchungen = person.getSeminarbuchungen();
         Seminarbuchung seminarbuchung = seminarbuchungen.get(0);
