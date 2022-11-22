@@ -68,6 +68,11 @@ class PersonTest {
     void test_3() {
         // Arrange
         Seminar seminar = new Seminar();
+        Seminarraum seminarraum = new Seminarraum();
+        seminarraum.setMaximalePersonenanzahl(12L);
+        seminar.setTeilnehmeranzahl(3);
+        seminar.setSeminarnummer(1L);
+        seminar.setSeminarraum(seminarraum);
         // Act
         Boolean isBooked_1 = person.seminarBuchen(seminar);
         Boolean isBooked_2 = person.seminarBuchen(seminar);
