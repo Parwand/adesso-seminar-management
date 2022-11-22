@@ -2,6 +2,7 @@ package de.adesso.adessoseminarmanagement.domain.model.person;
 
 import de.adesso.adessoseminarmanagement.domain.model.seminar.Seminar;
 import de.adesso.adessoseminarmanagement.domain.model.seminar.Seminarbuchung;
+import de.adesso.adessoseminarmanagement.domain.model.seminar.Seminarraum;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -27,9 +28,17 @@ class PersonTest {
     @Test
     @DisplayName("Person can book a seminar")
     void test_1() {
+        // Arrange
         Seminar seminar = new Seminar();
+        Seminarraum seminarraum = new Seminarraum();
+        seminarraum.setMaximalePersonenanzahl(12L);
+        seminar.setTeilnehmeranzahl(3);
+        seminar.setSeminarnummer(1L);
+        seminar.setSeminarraum(seminarraum);
+        // Act
         person.seminarBuchen(seminar);
         List<Seminarbuchung> seminarbuchungen = person.getSeminarbuchungen();
+        // Assert
         assertThat(seminarbuchungen.size()).isEqualTo(1);
     }
 
