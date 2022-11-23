@@ -1,9 +1,9 @@
 @startuml
 package "ApplicationService" {
     package "Repository" {
-        class "PersonRepository"
-        class "SeminarRepository"
-        class "SeminarraumRepository"
+        interface "PersonRepository"
+        interface "SeminarRepository"
+        interface "SeminarraumRepository"
     }
 }
 package "db" {
