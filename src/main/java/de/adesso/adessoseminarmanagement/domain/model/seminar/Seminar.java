@@ -20,7 +20,8 @@ public class Seminar {
     private LocalDateTime ende;
     private String kursinhalt;
     private int Teilnehmeranzahl;
-    private String seminarleiter;
+    @Column(name = "seminarleiter")
+    private Long seminarleiter;
     private String voraussetzung;
     @ManyToOne
     @JoinColumn(name = "seminarraum", referencedColumnName = "raumnummer")
@@ -34,7 +35,7 @@ public class Seminar {
     public Seminar() {
     }
 
-    public Seminar(String seminarTitle, LocalDateTime beginn, LocalDateTime ende, String kursinhalt, int teilnehmeranzahl, String seminarleiter, String voraussetzung, Seminarraum seminarraum) {
+    public Seminar(String seminarTitle, LocalDateTime beginn, LocalDateTime ende, String kursinhalt, int teilnehmeranzahl, Long seminarleiter, String voraussetzung, Seminarraum seminarraum) {
         this.seminarTitle = seminarTitle;
         this.beginn = beginn;
         this.ende = ende;
@@ -93,11 +94,11 @@ public class Seminar {
         Teilnehmeranzahl = teilnehmeranzahl;
     }
 
-    public String getSeminarleiter() {
+    public Long getSeminarleiter() {
         return seminarleiter;
     }
 
-    public void setSeminarleiter(String seminarleiter) {
+    public void setSeminarleiter(Long seminarleiter) {
         this.seminarleiter = seminarleiter;
     }
 
