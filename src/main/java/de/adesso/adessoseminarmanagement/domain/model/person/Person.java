@@ -28,7 +28,7 @@ public class Person {
     /* Seminar wird von einer Person geleitet und
     Person kann mehrere Seminare leiten */
     @OneToMany
-    @JoinColumn(name = "person_id", referencedColumnName = "id")
+    @JoinColumn(name = "seminarleiter", referencedColumnName = "id")
     private List<Seminar> seminarList;
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "person_id", referencedColumnName = "id")
