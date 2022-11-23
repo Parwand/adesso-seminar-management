@@ -1,0 +1,13 @@
+[[section-introduction-and-goals]]
+==	Einführung und Ziele
+
+=== Aufgabenstellung
+
+
+=== Stakeholder
+
+[cols="1,2" options="header"]
+|===
+|Rolle |Erwartungshaltung
+| _Person / User_ | _Sollte Seminare buchen können und Seminare leiten können und diese auch stornieren können_
+|===
