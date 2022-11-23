@@ -74,7 +74,7 @@ class PersonServiceTest {
         Seminar seminar1 = new Seminar("seminarTitle1",
                 LocalDateTime.of(LocalDate.of(2022, 11, 11), LocalTime.of(11, 0)),
                 LocalDateTime.of(LocalDate.of(2022, 11, 11), LocalTime.of(12, 0)),
-                "kursinhalt", 10, "seminarleiter1",  "voraussetzung1", SEMINARRAUM_1);
+                "kursinhalt", 10, 1L,  "voraussetzung1", SEMINARRAUM_1);
         seminarService.saveSeminar(seminar1);
         person.setAdresse(adresse);
         person.setSeminarList(List.of(seminar1));
@@ -181,7 +181,7 @@ class PersonServiceTest {
         Seminar seminar = new Seminar("Angular & Spring Boot",
                 LocalDateTime.of(LocalDate.of(2022, 12, 11), LocalTime.of(11, 0)),
                 LocalDateTime.of(LocalDate.of(2022, 12, 22), LocalTime.of(12, 0)),
-                "kursinhalt", 10, "seminarleiter7",  "voraussetzung7", SEMINARRAUM_2);
+                "kursinhalt", 10, 1L,  "voraussetzung7", SEMINARRAUM_2);
         seminar.setTeilnehmeranzahl(10);
         Person person = new Person();
         person.setUsername("username7");
@@ -206,7 +206,7 @@ class PersonServiceTest {
         Seminar seminar = new Seminar("Micro Services",
                 LocalDateTime.of(LocalDate.of(2023, 1, 22), LocalTime.of(11, 0)),
                 LocalDateTime.of(LocalDate.of(2023, 1, 26), LocalTime.of(12, 0)),
-                "kursinhalt", 10, "seminarleiter8",  "voraussetzung8", SEMINARRAUM_3);
+                "kursinhalt", 10, 1L,  "voraussetzung8", SEMINARRAUM_3);
         seminar.setTeilnehmeranzahl(10);
         Person person = new Person();
         person.setUsername("username8");
