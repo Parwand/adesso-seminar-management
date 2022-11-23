@@ -40,7 +40,7 @@ class SeminarServiceTest {
         seminar.setEnde(LocalDateTime.of(LocalDate.of(2022, 12, 22), LocalTime.of(9, 30)));
         seminar.setKursinhalt("About datasets, that have bias against the many of groups of people ");
         seminar.setVoraussetzung("Informatik semester 4");
-        seminar.setSeminarleiter("Prof. Conrad");
+        seminar.setSeminarleiter(1L);
         seminar.setSeminarraum(seminarraum);
         // Act
         seminarraumService.saveSeminarraum(seminarraum);
