@@ -1,0 +1,15 @@
+@startuml
+!include <archimate/Archimate>
+
+title Archimate Sample - Internet Browser
+
+' Elements
+
+Technology_Service(frontend, "Frontend Angular")
+Technology_Service(backend, "Backend Spring Boot")
+Technology_Service(database, "Persistence PostgreSQL")
+
+'Relationships
+frontend--> backend: REST mit Openapi
+backend --> database
+@enduml
