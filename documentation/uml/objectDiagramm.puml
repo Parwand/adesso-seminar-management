@@ -1,0 +1,54 @@
+@startuml
+
+class Seminar {
+    Seminarnummer
+    Seminartitel
+    Beginn datetime
+    End datetime
+    Kursinhalt
+    Teilnehmeranzahl
+    Seminarleiter
+    Voraussetzungen
+    create()
+    edit()
+    delete()
+    view()
+}
+
+class Person {
+    Vorname
+    Nachname
+    Geburtsdatum
+    Email
+    Adresse
+    create()
+    edit()
+    delete()
+    view()
+}
+
+class Seminarbuchung {
+    Buchungsnummer
+    Buchungsdatum
+    create()
+    edit()
+    delete()
+    view()
+}
+
+class Seminarraum {
+    Raumnummer
+    MaximalePersonenanzahl
+    Ausstattung
+    create()
+    edit()
+    delete()
+    view()
+}
+
+Seminar -- Seminarbuchung
+Seminar - Seminarraum:findet stat in
+Seminarbuchung -- Person:nimmt an Seminar teil
+Seminar -left- Person:leitet Seminar
+
+@enduml
