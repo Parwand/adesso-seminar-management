@@ -1,0 +1,53 @@
+@startuml
+allowmixing
+package "ApplicationService" {
+    package "Service" {
+        class "PersonService" {
+        }
+        class "SeminarService" {
+        }
+        class "SeminarraumService" {
+        }
+    }
+
+    package "Repository" {
+        interface "PersonRepository" {
+        }
+        interface "SeminarRepository" {
+        }
+        interface "SeminarraumRepository" {
+        }
+    }
+}
+
+package "Infrastructure" {
+    package "controller" {
+        class "RestController" {
+        }
+    }
+
+    package "DB" {
+        database "Database" {
+        }
+    }
+}
+
+package "domain" {
+    package "model" {
+        class "Person" {
+        }
+        class "Seminar" {
+        }
+        class "Seminarraum" {
+        }
+    }
+}
+
+"PersonService" --> "Person"
+"SeminarService" ----> "Seminar"
+"SeminarraumService" --> "Seminarraum"
+"Database" --|> "Repository"
+"RestController" --> "Service"
+"Service" --> "Repository"
+
+@enduml
