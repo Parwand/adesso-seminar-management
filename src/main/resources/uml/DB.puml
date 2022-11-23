@@ -31,6 +31,8 @@ package "db" {
     class "Hibernate(an implementation of JPA)" {
     }
 }
+database "postgres" {
+}
 'Person
 "PersonRepositoryImpl" --|> "PersonRepository"
 "PersonRepositoryImpl" --> "PersonDao"
@@ -48,4 +50,5 @@ package "db" {
 
 'Hibernate
 "JpaRepository" <|-- "Hibernate(an implementation of JPA)"
+"Hibernate(an implementation of JPA)" --> postgres: connect with datasource  by  "JDBC" url
 @enduml
