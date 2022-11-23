@@ -1,0 +1,51 @@
+@startuml
+package "ApplicationService" {
+    package "Repository" {
+        class "PersonRepository"
+        class "SeminarRepository"
+        class "SeminarraumRepository"
+    }
+}
+package "db" {
+    package "person" {
+        class "PersonRepositoryImpl" {
+        }
+        interface "PersonDao" {
+        }
+    }
+
+    package "seminar" {
+        class "SeminarRepositoryImpl" {
+        }
+        interface "SeminarDao" {
+        }
+
+        class "SeminarraumRepositoryImpl" {
+        }
+        interface "SeminarraumDao" {
+        }
+    }
+
+    interface "JpaRepository" {
+    }
+    class "Hibernate(an implementation of JPA)" {
+    }
+}
+'Person
+"PersonRepositoryImpl" --|> "PersonRepository"
+"PersonRepositoryImpl" --> "PersonDao"
+"PersonDao" ..>"JpaRepository"
+
+'Seminar
+"SeminarRepositoryImpl" --|> "SeminarRepository"
+"SeminarRepositoryImpl" --> "SeminarDao"
+"SeminarDao" ..> "JpaRepository"
+
+'Seminarraum
+"SeminarraumRepositoryImpl" --|> "SeminarraumRepository"
+"SeminarraumRepositoryImpl" --> "SeminarraumDao"
+"SeminarraumDao" ..> "JpaRepository"
+
+'Hibernate
+"JpaRepository" <|-- "Hibernate(an implementation of JPA)"
+@enduml
