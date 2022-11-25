@@ -225,4 +225,24 @@ class PersonServiceTest {
         // Assert
         assertThat(person.getSeminarbuchungen().size()).isEqualTo(0);
     }
+
+    @Test
+    @DisplayName("person can edit his address in the database")
+    void test_9() {
+        // Arrange
+        Person person = new Person();
+        person.setUsername("master_username");
+        person.setVorname("master_vorname");
+        person.setNachname("master_nachname");
+        Adresse adresse = new Adresse("Düsseldorf", "Königstraße", "33", "44534");
+        // Act
+        personService.save(person);
+        person.setAdresse(adresse);
+        personService.save(person);
+        Person loaded_person = personService.getPersonByUsername("master_username");
+        // Assert
+        assertThat(person.getId()).isNotNull();
+        assertThat(person.getAdresse()).isNotNull();
+        assertThat(loaded_person.getAdresse()).isNotNull();
+    }
 }
