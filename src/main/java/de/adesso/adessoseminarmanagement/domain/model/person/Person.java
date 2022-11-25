@@ -22,7 +22,7 @@ public class Person {
     private String nachname;
     @Column
     private LocalDate geburtsdatum;
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn
     private Adresse adresse;
     /* Seminar wird von einer Person geleitet und
